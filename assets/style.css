@@ -1,0 +1,53 @@
+@import url("styles/fonts.css");
+.section nav.navbar .nav-item {
+  padding: 0 1em;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+}
+
+.section nav.navbar .nav-item.logo {
+  padding: 0 2em;
+}
+
+.section nav.navbar .nav-item a.nav-link {
+  font-family: "Poppins", sans-serif;
+  font-weight: 500;
+  text-transform: uppercase;
+  font-size: 12px;
+}
+
+.section:nth-child(3) {
+  background-color: pink;
+}
+
+#fp-nav ul li {
+  padding: 15px;
+  width: 0px;
+  aspect-ratio: 1;
+  height: auto;
+  margin-bottom: 10px;
+}
+
+#fp-nav ul li a {
+  border: 3px solid #fdc800;
+  border-radius: 100%;
+  position: absolute !important;
+}
+
+#fp-nav ul li a.active {
+  background-color: #fdc800;
+}
+
+#fp-nav ul li a i {
+  position: absolute;
+  left: 50%;
+  top: 50%;
+  -webkit-transform: translate(-50%, -50%);
+          transform: translate(-50%, -50%);
+  color: #333333;
+}
+/*# sourceMappingURL=style.css.map */

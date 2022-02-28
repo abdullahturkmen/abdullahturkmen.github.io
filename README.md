@@ -1,1 +1,1 @@
-my new website
+Adım adım portfolio sitemi oluşturuyorum
