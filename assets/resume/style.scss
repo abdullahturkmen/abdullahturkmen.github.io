@@ -23,12 +23,13 @@ ul {
   padding: 0 !important;
 }
 
-$border-color: #f1f7fc;
+$border-color: #ebf2f7;
 $border-color-light: #0d78c420;
 
 body {
   font-family: "Roboto Slab", serif;
   color: #061754;
+  background-color: #f8f9fa;
 
   .spcl-light-blue {
     color: #066ec7;
@@ -98,6 +99,11 @@ body {
               svg {
                 margin-right: 10px;
               }
+
+              a {
+                color: inherit;
+                text-decoration: none;
+              }
             }
           }
 
@@ -108,6 +114,11 @@ body {
 
             svg {
               margin-right: 10px;
+            }
+
+            a {
+              color: inherit;
+              text-decoration: none;
             }
           }
         }
@@ -281,5 +292,10 @@ body {
     line-height: 4em;
     letter-spacing: -1px;
     width: auto;
+
+    a {
+      color: inherit;
+      text-decoration: none;
+    }
   }
 }

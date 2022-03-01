@@ -1,4 +1,8 @@
 @import url("styles/fonts.css");
+.section {
+  background-color: #f8f9fa;
+}
+
 .section nav.navbar .nav-item {
   padding: 0 1em;
   display: -webkit-box;

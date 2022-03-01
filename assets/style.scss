@@ -1,6 +1,7 @@
 @import url("styles/fonts.css");
 
 .section {
+  background-color: #f8f9fa;
   nav.navbar {
     .nav-item {
       padding: 0 1em;
@@ -29,20 +30,19 @@
 #fp-nav {
   ul {
     li {
-        padding: 15px;
-        width: 0px;
-        aspect-ratio: 1;
-        height: auto;
-        margin-bottom: 10px;
-        
+      padding: 15px;
+      width: 0px;
+      aspect-ratio: 1;
+      height: auto;
+      margin-bottom: 10px;
+
       a {
         border: 3px solid #fdc800;
         border-radius: 100%;
         position: absolute !important;
-    
 
-        &.active{
-            background-color: #fdc800;
+        &.active {
+          background-color: #fdc800;
         }
 
         i {

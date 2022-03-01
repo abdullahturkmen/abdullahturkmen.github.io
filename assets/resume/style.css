@@ -26,6 +26,7 @@ ul {
 body {
   font-family: "Roboto Slab", serif;
   color: #061754;
+  background-color: #f8f9fa;
 }
 
 body .spcl-light-blue {
@@ -38,7 +39,7 @@ body .resume-content-sections {
 }
 
 body .resume-content-sections .personal-avatar {
-  border: 4px solid #f1f7fc;
+  border: 4px solid #ebf2f7;
   border-radius: 100%;
   margin: auto;
   display: block;
@@ -69,7 +70,7 @@ body .resume-content-sections .personal-avatar img {
     position: absolute;
     height: 100vh;
     width: 2px;
-    background: #f1f7fc;
+    background: #ebf2f7;
     left: 50%;
     bottom: -100vh;
     -webkit-transform: translate(-50%, 0);
@@ -100,6 +101,11 @@ body .resume-content-sections .personal-contact span svg {
   margin-right: 10px;
 }
 
+body .resume-content-sections .personal-contact span a {
+  color: inherit;
+  text-decoration: none;
+}
+
 @media only screen and (min-width: 1200px) {
   body .resume-content-sections .personal-link {
     margin: 10px 0 0 auto;
@@ -108,6 +114,11 @@ body .resume-content-sections .personal-contact span svg {
 
 body .resume-content-sections .personal-link svg {
   margin-right: 10px;
+}
+
+body .resume-content-sections .personal-link a {
+  color: inherit;
+  text-decoration: none;
 }
 
 body .resume-content-sections .section {
@@ -130,7 +141,7 @@ body .resume-content-sections .section-icon {
   display: block;
   margin: auto;
   border-radius: 100%;
-  border: 2px solid #f1f7fc;
+  border: 2px solid #ebf2f7;
   width: 80px;
   height: 80px;
   line-height: 76px;
@@ -155,7 +166,7 @@ body .resume-content-sections .section-icon {
     position: absolute;
     height: 100vh;
     width: 2px;
-    background: #f1f7fc;
+    background: #ebf2f7;
     left: 50%;
     top: -100vh;
     -webkit-transform: translate(-50%, 0);
@@ -166,7 +177,7 @@ body .resume-content-sections .section-icon {
     position: absolute;
     height: 500vh;
     width: 2px;
-    background: #f1f7fc;
+    background: #ebf2f7;
     left: 50%;
     top: 100%;
     -webkit-transform: translate(-50%, 0);
@@ -180,7 +191,7 @@ body .resume-content-sections .section-icon {
     position: absolute;
     height: 2px;
     width: 200%;
-    background: #f1f7fc;
+    background: #ebf2f7;
     left: -200%;
     top: 50%;
     -webkit-transform: translate(0, -50%);
@@ -191,7 +202,7 @@ body .resume-content-sections .section-icon {
     position: absolute;
     height: 2px;
     width: 200%;
-    background: #f1f7fc;
+    background: #ebf2f7;
     right: -200%;
     top: 50%;
     -webkit-transform: translate(0, -50%);
@@ -283,5 +294,10 @@ body .resume-update-date {
   line-height: 4em;
   letter-spacing: -1px;
   width: auto;
+}
+
+body .resume-update-date a {
+  color: inherit;
+  text-decoration: none;
 }
 /*# sourceMappingURL=style.css.map */
