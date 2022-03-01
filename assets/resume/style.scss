@@ -1,0 +1,285 @@
+@import url("https://fonts.googleapis.com/css2?family=Roboto+Slab:wght@100;200;300;400;500;600;700;800&display=swap");
+
+*,
+*::before,
+*::after {
+  padding: 0;
+  margin: 0;
+  box-sizing: border-box;
+  list-style: none;
+}
+
+blockquote,
+dd,
+dl,
+fieldset,
+figure,
+menu,
+ol,
+p,
+pre,
+ul {
+  margin: 0 !important;
+  padding: 0 !important;
+}
+
+$border-color: #f1f7fc;
+$border-color-light: #0d78c420;
+
+body {
+  font-family: "Roboto Slab", serif;
+  color: #061754;
+
+  .spcl-light-blue {
+    color: #066ec7;
+  }
+
+  .resume {
+    &-content {
+      &-sections {
+        border: 1px solid $border-color-light;
+        border-radius: 4px;
+
+        .personal {
+          &-avatar {
+            border: 4px solid $border-color;
+            border-radius: 100%;
+            margin: auto;
+            display: block;
+            position: relative;
+            max-width: max-content;
+            width: fit-content;
+
+            img {
+              width: 100%;
+              max-width: 100%;
+              border-radius: 100%;
+
+              @media only screen and (max-width: 767px) {
+                max-width: 350px;
+              }
+            }
+
+            @media only screen and (min-width: 768px) {
+              &:after {
+                content: "";
+                position: absolute;
+                height: 100vh;
+                width: 2px;
+                background: $border-color;
+                left: 50%;
+                bottom: -100vh;
+                transform: translate(-50%, 0);
+              }
+            }
+          }
+
+          &-name {
+            font-size: 36px;
+            font-weight: bold;
+            letter-spacing: -1px;
+            line-height: 26px;
+          }
+
+          &-job {
+            margin-top: 15px;
+          }
+
+          &-statu {
+            margin-top: 20px;
+          }
+
+          &-contact {
+            span {
+              &:first-child {
+                margin-right: 15px;
+              }
+
+              svg {
+                margin-right: 10px;
+              }
+            }
+          }
+
+          &-link {
+            @media only screen and (min-width: 1200px) {
+              margin: 10px 0 0 auto;
+            }
+
+            svg {
+              margin-right: 10px;
+            }
+          }
+        }
+
+        .section {
+          overflow: hidden;
+          padding-bottom: 1em;
+
+          &:nth-child(2) {
+            padding-top: 2em;
+          }
+
+          &:last-child {
+            .section-icon {
+              @media only screen and (min-width: 768px) {
+                &:after {
+                  width: 0;
+                  height: 0;
+                }
+              }
+            }
+          }
+
+          &-icon {
+            display: block;
+            margin: auto;
+            border-radius: 100%;
+            border: 2px solid $border-color;
+            width: 80px;
+            height: 80px;
+            line-height: 76px;
+            text-align: center;
+            position: relative;
+            @media only screen and (max-width: 767px) {
+              width: 60px;
+              height: 60px;
+              line-height: 56px;
+              svg {
+                width: 25px;
+              }
+            }
+
+            @media only screen and (min-width: 768px) {
+              &:before {
+                content: "";
+                position: absolute;
+                height: 100vh;
+                width: 2px;
+                background: $border-color;
+                left: 50%;
+                top: -100vh;
+                transform: translate(-50%, 0);
+              }
+
+              &:after {
+                content: "";
+                position: absolute;
+                height: 500vh;
+                width: 2px;
+                background: $border-color;
+                left: 50%;
+                top: 100%;
+                transform: translate(-50%, 0);
+              }
+            }
+            @media only screen and (max-width: 767px) {
+              &:before {
+                content: "";
+                position: absolute;
+                height: 2px;
+                width: 200%;
+                background: $border-color;
+                left: -200%;
+                top: 50%;
+                transform: translate(0, -50%);
+              }
+
+              &:after {
+                content: "";
+                position: absolute;
+                height: 2px;
+                width: 200%;
+                background: $border-color;
+                right: -200%;
+                top: 50%;
+                transform: translate(0, -50%);
+              }
+            }
+          }
+
+          &-title {
+            font-size: 24px;
+            font-weight: bold;
+            margin: 15px 0 10px;
+            @media only screen and (max-width: 767px) {
+              text-align: center;
+              margin: 5px 0 10px !important;
+            }
+          }
+
+          &-content {
+            .list {
+              margin-top: 20px;
+
+              &-item {
+                border-left: 11px solid $border-color-light;
+                margin-bottom: 3em;
+                padding: 0 10px;
+
+                &:last-child {
+                  margin-bottom: 0;
+                }
+
+                &-top {
+                  width: 100%;
+                  align-items: center;
+
+                  &.equal-div {
+                    grid-template-columns: repeat(auto-fit, minmax(100px, 1fr));
+                  }
+                }
+
+                &-title {
+                  font-weight: bold;
+                  font-size: 20px;
+                }
+
+                &-text {
+                  margin-top: 15px;
+                }
+
+                &-date {
+                  @media only screen and (max-width: 991px) {
+                    text-align: left;
+                    font-size: 14px;
+                  }
+                  @media only screen and (min-width: 992px) {
+                    text-align: right;
+                    margin-left: auto;
+                  }
+                }
+
+                &-detail {
+                  @media only screen and (max-width: 767px) {
+                    margin-top: 5px;
+                  }
+
+                  .sml-title {
+                    font-size: 14px;
+                  }
+                }
+              }
+            }
+          }
+
+          &.language {
+            .list-item-detail {
+              @media only screen and (max-width: 767px) {
+                display: inline-block;
+                width: 30%;
+              }
+            }
+          }
+        }
+      }
+    }
+  }
+
+  .resume-update-date {
+    text-align: right;
+    line-height: 4em;
+    letter-spacing: -1px;
+    width: auto;
+  }
+}
