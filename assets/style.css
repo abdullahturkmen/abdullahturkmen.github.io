@@ -1,11 +1,14 @@
 @import url("styles/fonts.css");
 .section {
-  background-color: #f8f9fa;
+  /*background-color: #f8f9fa;*/
+  background-color: #fdc800;
 }
 
 .section iframe {
-  width: calc(100% - 25px);
-  height: 100vh;
+  width: 90%;
+  height: 90vh;
+  margin: auto;
+  display: block;
 }
 
 .section nav.navbar .nav-item {
@@ -38,7 +41,8 @@
 }
 
 #fp-nav ul li a {
-  border: 3px solid #fdc800;
+  /*border: 3px solid #fdc800;*/
+  border: 3px solid #333;
   border-radius: 100%;
   position: absolute !important;
 }
