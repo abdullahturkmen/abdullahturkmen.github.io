@@ -3,6 +3,11 @@
   background-color: #f8f9fa;
 }
 
+.section iframe {
+  width: calc(100% - 25px);
+  height: 100vh;
+}
+
 .section nav.navbar .nav-item {
   padding: 0 1em;
   display: -webkit-box;
@@ -24,12 +29,8 @@
   font-size: 12px;
 }
 
-.section:nth-child(3) {
-  background-color: pink;
-}
-
 #fp-nav ul li {
-  padding: 15px;
+  padding: 10px;
   width: 0px;
   aspect-ratio: 1;
   height: auto;

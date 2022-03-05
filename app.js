@@ -1,12 +1,12 @@
 
 // fullpagejs start   
 var myFullpage = new fullpage('#fullpage', {
-    anchors: ['home', '02', '03', 'resume'],
+   
 scrollOverflow: true,
 navigation: true,
 navigationPosition: 'right',
 afterRender: function(){
-    addIcons()
+    //addIcons()
 }
 });
 
