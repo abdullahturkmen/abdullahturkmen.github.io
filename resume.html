@@ -1,824 +1,670 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="tr">
 
 <head>
-  <meta charset="UTF-8" />
-  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" />
-  <link rel="stylesheet" href="assets/resume/style.css" />
-  <title>Abdullah Türkmen</title>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Abdullah Türkmen - Frontend Developer</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            text-decoration: none !important;
+        }
+
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background: #f5f5f5;
+            padding: 40px 20px;
+            line-height: 1.6;
+        }
+
+        .container {
+            max-width: 900px;
+            margin: 0 auto;
+            background: white;
+            box-shadow: 0 0 40px rgba(0, 0, 0, 0.1);
+            display: grid;
+            grid-template-columns: 300px 1fr;
+        }
+
+        .sidebar {
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: white;
+            padding: 40px 30px;
+        }
+
+        .profile-section {
+            text-align: center;
+            margin-bottom: 40px;
+        }
+
+        .profile-img {
+            width: 140px;
+            height: 140px;
+            border-radius: 50%;
+            background: white;
+            margin: 0 auto 20px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 48px;
+            color: #667eea;
+            font-weight: bold;
+            border: 4px solid rgba(255, 255, 255, 0.3);
+        }
+
+        .profile-img img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            border-radius: 50%;
+            border: none;
+        }
+
+        .name {
+            font-size: 26px;
+            font-weight: bold;
+            margin-bottom: 8px;
+        }
+
+        .title {
+            font-size: 16px;
+            opacity: 0.9;
+            font-weight: 300;
+        }
+
+        .sidebar-section {
+            margin-bottom: 35px;
+        }
+
+        .sidebar-section h3 {
+            font-size: 14px;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            margin-bottom: 15px;
+            padding-bottom: 8px;
+            border-bottom: 2px solid rgba(255, 255, 255, 0.3);
+        }
+
+        .contact-item {
+            display: flex;
+            align-items: center;
+            margin-bottom: 12px;
+            font-size: 13px;
+        }
+
+        .contact-item svg {
+            width: 18px;
+            height: 18px;
+            margin-right: 10px;
+            flex-shrink: 0;
+        }
+
+        .skill-item {
+            margin-bottom: 15px;
+        }
+
+        .skill-name {
+            font-size: 14px;
+            margin-bottom: 5px;
+            display: flex;
+            justify-content: space-between;
+        }
+
+        .skill-bar {
+            height: 6px;
+            background: rgba(255, 255, 255, 0.2);
+            border-radius: 3px;
+            overflow: hidden;
+        }
+
+        .skill-progress {
+            height: 100%;
+            background: white;
+            border-radius: 3px;
+        }
+
+        .main-content {
+            padding: 40px 45px;
+        }
+
+        .summary {
+            margin-bottom: 40px;
+            padding-bottom: 30px;
+            border-bottom: 2px solid #f0f0f0;
+        }
+
+        .summary p {
+            color: #555;
+            font-size: 15px;
+            line-height: 1.8;
+        }
+
+        .section {
+            margin-bottom: 40px;
+        }
+
+        .section-title {
+            font-size: 22px;
+            color: #667eea;
+            margin-bottom: 25px;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+
+        .section-title::before {
+            content: '';
+            width: 4px;
+            height: 24px;
+            background: #667eea;
+            border-radius: 2px;
+        }
+
+        .experience-item,
+        .education-item {
+            margin-bottom: 30px;
+            position: relative;
+            padding-left: 20px;
+        }
+
+        .experience-item::before {
+            content: '';
+            position: absolute;
+            left: 0;
+            top: 8px;
+            width: 10px;
+            height: 10px;
+            background: #667eea;
+            border-radius: 50%;
+        }
+
+        .education-item.terk {
+            opacity: .5;
+        }
+
+        .experience-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: flex-start;
+            margin-bottom: 8px;
+            flex-wrap: wrap;
+        }
+
+        .job-title {
+            font-size: 18px;
+            font-weight: 600;
+            color: #333;
+        }
+
+        .company {
+            font-size: 16px;
+            color: #667eea;
+            margin-bottom: 4px;
+        }
+
+        .date {
+            font-size: 13px;
+            color: #888;
+            background: #f8f8f8;
+            padding: 4px 12px;
+            border-radius: 12px;
+        }
+
+        .experience-desc {
+            color: #666;
+            font-size: 14px;
+            margin-top: 10px;
+        }
+
+        .experience-desc ul {
+            margin-top: 8px;
+            padding-left: 20px;
+        }
+
+        .experience-desc li {
+            margin-bottom: 6px;
+        }
+
+        .tech-tags {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 8px;
+            margin-top: 12px;
+        }
+
+        .tag {
+            background: #f0f0f0;
+            color: #667eea;
+            padding: 4px 12px;
+            border-radius: 12px;
+            font-size: 12px;
+            font-weight: 500;
+        }
+
+        @media print {
+            body {
+                padding: 0;
+                background: white;
+            }
+
+            .container {
+                box-shadow: none;
+            }
+        }
+
+        @media (max-width: 768px) {
+            .container {
+                grid-template-columns: 1fr;
+            }
+        }
+
+        .project-link {
+            margin-top: 12px;
+            font-size: 14px;
+        }
+    </style>
 </head>
 
 <body>
-  <div class="container-xl">
-    <!-- Resume Start -->
-    <div class="resume-content mt-5 mx-1 mx-md-5">
-      <!-- Resume Content Start -->
-      <div class="resume-content-sections p-3">
-        <!-- Personal Details Start -->
-        <div class="row section personal-details">
-          <!-- Personal Avatar Start -->
-          <div class="col-12 col-xs-4 col-md-3 col-lg-2">
-            <div class="personal-avatar">
-              <img src="https://abdullahturkmen.com/abdullah-turkmen-avatar.jpg" />
+    <div class="container">
+        <aside class="sidebar">
+            <div class="profile-section">
+                <div class="profile-img">
+                    <img src="assets/img/abdullah-turkmen.webp" alt="Abdullah Türkmen"
+                        onerror="this.style.display='none';this.parentNode.textContent='AT';">
+                </div>
+                <div class="name">Abdullah TÜRKMEN</div>
+                <div class="title">Frontend Developer</div>
             </div>
-          </div>
-          <!-- Personal Avatar End -->
 
-          <!-- Details Content Start -->
-          <div class="col-12 col-xs-8 col-md-9 col-xl-10 pt-2 d-block d-xl-inline-flex">
-            <div class="personal-information">
-              <div class="personal-pre">Merhaba, Ben</div>
-              <div class="personal-name">Abdullah TÜRKMEN</div>
-              <div class="personal-job spcl-light-blue">
-                Front-end Developer
-              </div>
-              <div class="personal-statu"></div>
-              <div class="personal-contact mt-1 d-block d-lg-inline-flex">
-                <span class="d-block">
-                  <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 18 18">
-                    <g id="Icon_Phone" transform="translate(-0.344 0)">
-                      <g id="Group_71" data-name="Group 71" transform="translate(0.344 0)">
-                        <path id="Path_591" data-name="Path 591"
-                          d="M14.576,37.513a1.774,1.774,0,0,0-1.286-.589,1.834,1.834,0,0,0-1.3.585l-1.2,1.2c-.1-.053-.2-.1-.293-.152-.137-.068-.266-.133-.377-.2A13.058,13.058,0,0,1,6.987,35.5,7.694,7.694,0,0,1,5.96,33.886c.312-.285.6-.581.883-.866.107-.106.213-.217.32-.323a1.741,1.741,0,0,0,0-2.628L6.123,29.032c-.118-.118-.24-.239-.354-.361-.228-.235-.468-.479-.715-.706a1.8,1.8,0,0,0-1.274-.558,1.865,1.865,0,0,0-1.293.558l-.008.008-1.293,1.3A2.777,2.777,0,0,0,.36,31.041a6.649,6.649,0,0,0,.487,2.818,16.349,16.349,0,0,0,2.91,4.847,17.9,17.9,0,0,0,5.961,4.66,9.3,9.3,0,0,0,3.348.988c.08,0,.164.008.24.008a2.869,2.869,0,0,0,2.195-.942c0-.008.011-.011.015-.019a8.642,8.642,0,0,1,.666-.687c.164-.156.331-.319.495-.49a1.893,1.893,0,0,0,.574-1.314,1.824,1.824,0,0,0-.586-1.3Zm1.362,4s0,0,0,0c-.148.16-.3.3-.464.463a9.992,9.992,0,0,0-.734.76,1.835,1.835,0,0,1-1.43.6c-.057,0-.118,0-.175,0a8.26,8.26,0,0,1-2.967-.889,16.894,16.894,0,0,1-5.615-4.391A15.415,15.415,0,0,1,1.813,33.5a5.416,5.416,0,0,1-.426-2.378A1.742,1.742,0,0,1,1.912,30l1.3-1.3a.865.865,0,0,1,.578-.27.814.814,0,0,1,.555.266l.011.011c.232.216.453.441.685.68.118.122.24.243.361.368l1.039,1.037a.724.724,0,0,1,0,1.177c-.11.11-.217.22-.327.327-.32.327-.624.631-.955.927-.008.008-.015.011-.019.019a.774.774,0,0,0-.2.862l.011.034a8.322,8.322,0,0,0,1.229,2l0,0a13.955,13.955,0,0,0,3.378,3.069,5.2,5.2,0,0,0,.468.254c.137.068.266.133.377.2.015.008.03.019.046.027a.826.826,0,0,0,.377.095.814.814,0,0,0,.578-.262l1.3-1.3a.861.861,0,0,1,.574-.285.775.775,0,0,1,.548.277l.008.008,2.1,2.093A.75.75,0,0,1,15.938,41.513Z"
-                          transform="translate(-0.344 -26.361)" fill="#1675be" />
-                        <path id="Path_592" data-name="Path 592"
-                          d="M245.367,86.946a4.906,4.906,0,0,1,4,4,.512.512,0,0,0,.507.427.679.679,0,0,0,.088-.008.515.515,0,0,0,.423-.595,5.933,5.933,0,0,0-4.834-4.834.517.517,0,0,0-.595.419A.509.509,0,0,0,245.367,86.946Z"
-                          transform="translate(-235.646 -82.666)" fill="#1675be" />
-                        <path id="Path_593" data-name="Path 593"
-                          d="M257.333,7.968a9.769,9.769,0,0,0-7.96-7.96.514.514,0,1,0-.168,1.014,8.726,8.726,0,0,1,7.114,7.114.511.511,0,0,0,.507.427.681.681,0,0,0,.088-.008A.505.505,0,0,0,257.333,7.968Z"
-                          transform="translate(-239.341 0)" fill="#1675be" />
-                      </g>
-                    </g>
-                  </svg>
-                  <a href="tel:+905372997045">0537 299 70 45</a>
-                </span>
-                <span class="d-block">
-                  <svg xmlns="http://www.w3.org/2000/svg" width="18" height="13.698" viewBox="0 0 18 13.698">
-                    <g id="Icon_Mail" transform="translate(0 -57.75)">
-                      <g id="Group_72" data-name="Group 72" transform="translate(0 57.75)">
-                        <path id="Path_597" data-name="Path 597"
-                          d="M15.8,57.75H2.2a2.2,2.2,0,0,0-2.2,2.2v9.3a2.2,2.2,0,0,0,2.2,2.2H15.8a2.2,2.2,0,0,0,2.2-2.2V59.955A2.2,2.2,0,0,0,15.8,57.75Zm1.2,11.5a1.2,1.2,0,0,1-1.2,1.2H2.2a1.2,1.2,0,0,1-1.2-1.2V59.955a1.2,1.2,0,0,1,1.2-1.2H15.8a1.2,1.2,0,0,1,1.2,1.2v9.292Z"
-                          transform="translate(0 -57.75)" fill="#2871b4" />
-                        <path id="Path_598" data-name="Path 598"
-                          d="M65.028,113.731l4.4-3.948a.5.5,0,1,0-.674-.749l-6.071,5.449L61.5,113.426s-.007-.007-.007-.011a.744.744,0,0,0-.082-.071l-4.819-4.313a.5.5,0,1,0-.67.752l4.454,3.981-4.436,4.153a.5.5,0,0,0-.022.711.514.514,0,0,0,.369.16.5.5,0,0,0,.343-.134l4.5-4.212,1.222,1.091a.5.5,0,0,0,.67,0l1.255-1.125,4.477,4.253a.5.5,0,0,0,.711-.019.5.5,0,0,0-.019-.711Z"
-                          transform="translate(-53.676 -106.997)" fill="#2871b4" />
-                      </g>
-                    </g>
-                  </svg>
-                  <a href="mailto:mail@abdullahturkmen.com">mail@abdullahturkmen.com</a>
-                </span>
-              </div>
+            <div class="sidebar-section">
+                <h3>İletişim</h3>
+                <div class="contact-item">
+                    <svg fill="currentColor" viewBox="0 0 20 20">
+                        <path d="M2.003 5.884L10 9.882l7.997-3.998A2 2 0 0016 4H4a2 2 0 00-1.997 1.884z" />
+                        <path d="M18 8.118l-8 4-8-4V14a2 2 0 002 2h12a2 2 0 002-2V8.118z" />
+                    </svg>
+                    <a href="mailto:mail@abdullahturkmen.com"
+                        style="color:inherit;text-decoration:underline">mail@abdullahturkmen.com</a>
+                </div>
+                <div class="contact-item">
+                    <svg fill="currentColor" viewBox="0 0 20 20">
+                        <path
+                            d="M2 3a1 1 0 011-1h2.153a1 1 0 01.986.836l.74 4.435a1 1 0 01-.54 1.06l-1.548.773a11.037 11.037 0 006.105 6.105l.774-1.548a1 1 0 011.059-.54l4.435.74a1 1 0 01.836.986V17a1 1 0 01-1 1h-2C7.82 18 2 12.18 2 5V3z" />
+                    </svg>
+                    <a href="tel:+905372997045" style="color:inherit;text-decoration:underline">+90 537 299 70 45</a>
+                </div>
+                <div class="contact-item">
+                    <svg fill="currentColor" viewBox="0 0 20 20">
+                        <path fill-rule="evenodd"
+                            d="M5.05 4.05a7 7 0 119.9 9.9L10 18.9l-4.95-4.95a7 7 0 010-9.9zM10 11a2 2 0 100-4 2 2 0 000 4z"
+                            clip-rule="evenodd" />
+                    </svg>
+                    Sultangazi, İstanbul
+                </div>
+                <div class="contact-item">
+                    <svg fill="currentColor" viewBox="0 0 20 20">
+                        <path
+                            d="M10 0a10 10 0 100 20 10 10 0 000-20zM8.5 14.5L5 11l1.5-1.5L8.5 11l5-5L15 7.5l-6.5 7z" />
+                    </svg>
+                    <a href="https://abdullahturkmen.com" target="_blank" rel="noopener"
+                        style="color:inherit;text-decoration:underline">abdullahturkmen.com</a>
+                </div>
+                <div class="contact-item">
+                    <svg fill="currentColor" viewBox="0 0 20 20">
+                        <path fill-rule="evenodd"
+                            d="M10 0C4.477 0 0 4.484 0 10.017c0 4.425 2.865 8.18 6.839 9.504.5.092.682-.217.682-.483 0-.237-.008-.868-.013-1.703-2.782.605-3.369-1.343-3.369-1.343-.454-1.158-1.11-1.466-1.11-1.466-.908-.62.069-.608.069-.608 1.003.07 1.531 1.032 1.531 1.032.892 1.53 2.341 1.088 2.91.832.092-.647.35-1.088.636-1.338-2.22-.253-4.555-1.113-4.555-4.951 0-1.093.39-1.988 1.029-2.688-.103-.253-.446-1.272.098-2.65 0 0 .84-.27 2.75 1.026A9.564 9.564 0 0110 4.844c.85.004 1.705.115 2.504.337 1.909-1.296 2.747-1.027 2.747-1.027.546 1.379.203 2.398.1 2.651.64.7 1.028 1.595 1.028 2.688 0 3.848-2.339 4.695-4.566 4.942.359.31.678.921.678 1.856 0 1.338-.012 2.419-.012 2.747 0 .268.18.58.688.482A10.019 10.019 0 0020 10.017C20 4.484 15.522 0 10 0z"
+                            clip-rule="evenodd" />
+                    </svg>
+                    <a href="https://github.com/abdullahturkmen" target="_blank" rel="noopener"
+                        style="color:inherit;text-decoration:underline">github.com/abdullahturkmen</a>
+                </div>
+                <div class="contact-item">
+                    <svg fill="currentColor" viewBox="0 0 24 24">
+                        <path
+                            d="M20.447 20.452h-3.554v-5.569c0-1.328-.027-3.037-1.852-3.037-1.853 0-2.136 1.445-2.136 2.939v5.667H9.351V9h3.414v1.561h.046c.477-.9 1.637-1.85 3.37-1.85 3.601 0 4.267 2.37 4.267 5.455v6.286zM5.337 7.433c-1.144 0-2.063-.926-2.063-2.065 0-1.138.92-2.063 2.063-2.063 1.14 0 2.064.925 2.064 2.063 0 1.139-.925 2.065-2.064 2.065zm1.782 13.019H3.555V9h3.564v11.452zM22.225 0H1.771C.792 0 0 .774 0 1.729v20.542C0 23.227.792 24 1.771 24h20.451C23.2 24 24 23.227 24 22.271V1.729C24 .774 23.2 0 22.222 0h.003z" />
+                    </svg>
+                    <a href="https://linkedin.com/in/abdullahturkmen" target="_blank" rel="noopener"
+                        style="color:inherit;text-decoration:underline">linkedin.com/in/abdullahturkmen</a>
+                </div>
             </div>
-            <div class="personal-link">
-              <span class="d-block">
-                <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 18 18">
-                  <g id="Icon_Web" transform="translate(-46.811 -63.987)">
-                    <path id="Path_638" data-name="Path 638"
-                      d="M334.2,421.039a.438.438,0,0,0-.6-.159l-.014.008a.438.438,0,0,0,.439.757l.014-.008a.438.438,0,0,0,.159-.6Z"
-                      transform="translate(-273.725 -340.857)" fill="#2871b4" />
-                    <path id="Path_639" data-name="Path 639"
-                      d="M63.6,68.49a9,9,0,1,0-4.574,12.9.438.438,0,1,0-.314-.817A8.05,8.05,0,0,1,51,79.542l.291-1.521.1-.032a1.174,1.174,0,0,0,.753-1.477l-.11-.339a.3.3,0,0,1,0-.184,1.172,1.172,0,0,0-.889-1.516l-.765-.15-1.5-1.14a.438.438,0,0,0-.4-.068l-.776.252c-.009-.2-.011-.408,0-.611a.442.442,0,0,0,.332.115,5.038,5.038,0,0,0,.637-.072c.282-.042.559-.088.59-.093a.438.438,0,0,0,.289-.678l-.377-.554.54-.386a.434.434,0,0,0,.125-.138l.942-1.645.375-.4a1.56,1.56,0,0,0,.3-1.654,1.674,1.674,0,0,0-.564-.718,8.11,8.11,0,0,1,4.642-1.658l-.486.61-2.28.8a.438.438,0,0,0-.26.246l-.644,1.56a.435.435,0,0,0,.048.421l.9,1.254a4.063,4.063,0,0,0-.378.483c-.067.1-.131.186-.173.234l-.116.131a3.326,3.326,0,0,0-.574.8,2.164,2.164,0,0,0,.18,2.187,2.042,2.042,0,0,0,1.928.828,2.793,2.793,0,0,0,.351-.071c.306-.076.35-.065.406-.013l.017.017a.694.694,0,0,1,0,.117,1.45,1.45,0,0,0,.034.367,1.191,1.191,0,0,0,.315.52.869.869,0,0,1,.11.135c.1.229.057.346-.045.658l-.027.082a2.021,2.021,0,0,0,.259,1.461c.062.136.12.265.158.376.323.958.567,1.181.784,1.28a.817.817,0,0,0,.34.072h0a2.041,2.041,0,0,0,1.335-.794,1.165,1.165,0,0,0,.234-.547.553.553,0,0,1,.034-.127.838.838,0,0,1,.1-.133,1.3,1.3,0,0,0,.3-.5.684.684,0,0,1,.216-.336l.078-.083a1.2,1.2,0,0,0,.237-1.385c-.087-.281.043-.459.505-.89a3.827,3.827,0,0,0,.565-.61.831.831,0,0,0,.156-.783.882.882,0,0,0-.772-.434,1.423,1.423,0,0,1-.268-.057,1.592,1.592,0,0,1-.442-.681c-.026-.057-.051-.113-.076-.168-.044-.094-.089-.21-.136-.332a2.983,2.983,0,0,0-.533-.987,2.278,2.278,0,0,0-1.04-.469c-.121-.033-.235-.063-.308-.09A.436.436,0,0,0,56.316,70a.983.983,0,0,0-.406.171.52.52,0,0,0-.1.116c-.093-.052-.2-.122-.281-.175a.579.579,0,0,0-.049-.332c-.22-.466-.918-.431-1.056-.419-.07.006-.161.009-.256.012s-.222.008-.342.017a.8.8,0,0,1,.7-.419h.2a.438.438,0,1,0,0-.875h-.2a1.688,1.688,0,0,0-1.349.684l-.416-.582.477-1.155,2.214-.776a.438.438,0,0,0,.2-.14l.971-1.218a8.146,8.146,0,0,1,6.228,4.018,8.044,8.044,0,0,1,.8,1.917l-.106.095a1.019,1.019,0,0,0-.279.412L63.131,71a.958.958,0,0,0-.173-.3l-.429-.5a.961.961,0,0,0-.732-.338h-.525a.594.594,0,0,0-.494.923l.009.013a3.8,3.8,0,0,1-.988.587L59.127,70.1v-.285a.439.439,0,0,0-.135-.316l-.648-.618a.435.435,0,0,0-.157-.1l-.583-.2a.438.438,0,0,0-.29.826l.494.174.444.424v.206a.439.439,0,0,0,.05.2l.9,1.725a.438.438,0,0,0,.539.208l.262-.1a4.644,4.644,0,0,0,1.665-1.066.439.439,0,0,0,.108-.441h.02a.088.088,0,0,1,.067.031l.429.5a.087.087,0,0,1,.016.027l.473,1.3a.436.436,0,0,0,.317.278.443.443,0,0,0,.4-.118l.225-.225a1.146,1.146,0,0,0,.172-.221,8.173,8.173,0,0,1-3.063,7.059.438.438,0,1,0,.54.688A9,9,0,0,0,63.6,68.49ZM48.2,71.614l.228.335-.258.034-.034-.032c-.078-.072-.182-.165-.334-.3a8.18,8.18,0,0,1,2.377-4.518.81.81,0,0,1,.459.448.682.682,0,0,1-.132.724l-.409.439a.441.441,0,0,0-.06.081l-.92,1.606-.81.579A.44.44,0,0,0,48.2,71.614Zm3,4.829.11.339a.3.3,0,0,1-.191.374l-.346.112a.438.438,0,0,0-.295.334L50.228,78.9a8.224,8.224,0,0,1-1.451-1.846,8.062,8.062,0,0,1-.989-2.792l.74-.24,1.4,1.063a.44.44,0,0,0,.181.081l.865.169a.3.3,0,0,1,.225.384A1.165,1.165,0,0,0,51.2,76.442Zm3.328-6.1a.44.44,0,0,0,.226.319c.062.033.151.092.245.155a2.064,2.064,0,0,0,.914.42.669.669,0,0,0,.542-.223L56.457,71,56.462,71a.461.461,0,0,0,.073-.077l.1.027.011,0a2.689,2.689,0,0,1,.633.224,2.427,2.427,0,0,1,.353.7c.053.136.1.265.16.387.021.045.042.091.062.137l.008.018a2.243,2.243,0,0,0,.761,1.055,1.351,1.351,0,0,0,.538.178c-.1.109-.213.219-.336.333a1.692,1.692,0,0,0-.745,1.789c.112.362.109.365-.046.534l-.071.076a1.522,1.522,0,0,0-.412.671.458.458,0,0,1-.123.189,1.627,1.627,0,0,0-.205.272,1.219,1.219,0,0,0-.136.4.362.362,0,0,1-.054.165,1.93,1.93,0,0,1-.418.369.715.715,0,0,1-.2.1,3.073,3.073,0,0,1-.329-.751c-.051-.153-.122-.308-.19-.458a1.465,1.465,0,0,1-.223-.83l.026-.08a1.613,1.613,0,0,0,.021-1.267,1.328,1.328,0,0,0-.27-.387.945.945,0,0,1-.112-.137.7.7,0,0,1-.009-.154.953.953,0,0,0-.3-.778,1,1,0,0,0-.707-.275,2.1,2.1,0,0,0-.509.078,2.091,2.091,0,0,1-.241.05,1.163,1.163,0,0,1-1.115-.47,1.288,1.288,0,0,1-.1-1.3,2.577,2.577,0,0,1,.437-.591l.007-.008.115-.131c.071-.082.147-.19.227-.3a3.006,3.006,0,0,1,.319-.405,2.3,2.3,0,0,1,.736-.1c.1,0,.206-.007.3-.015l.029,0A.44.44,0,0,0,54.525,70.338Z"
-                      transform="translate(0 0)" fill="#2871b4" />
-                    <path id="Path_640" data-name="Path 640"
-                      d="M319.158,313.892a1.246,1.246,0,0,0-.019,1.242.812.812,0,0,0,.665.407h0a.665.665,0,0,0,.106-.009c.393-.064.682-.454.911-1.225l.409-1.38a.437.437,0,0,0,0-.237l-.167-.631a.438.438,0,0,0-.808-.1c-.04.073-.075.149-.108.222a1.482,1.482,0,0,1-.16.294.865.865,0,0,1-.176.1,1.045,1.045,0,0,0-.626.617,1.113,1.113,0,0,0-.026.531c.015.1.015.116,0,.156Zm.866-.428a.9.9,0,0,1,.164-.092l-.137.462a1.458,1.458,0,0,0-.02-.235A.316.316,0,0,1,320.023,313.464Z"
-                      transform="translate(-259.977 -236.654)" fill="#2871b4" />
-                    <path id="Path_641" data-name="Path 641"
-                      d="M246.453,155.795l-.023-.008a.438.438,0,0,0-.29.826l.023.008a.438.438,0,1,0,.29-.826Z"
-                      transform="translate(-190.124 -87.665)" fill="#2871b4" />
-                  </g>
-                </svg>
-                <a href="https://codepen.io/abdullahturkmen">codepen.io/abdullahturkmen</a>
-              </span>
-              <span class="d-block">
-                <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 18 18">
-                  <g id="Icon_Linkedin" transform="translate(5 -5.708)">
-                    <g id="Ellipse_12" data-name="Ellipse 12" transform="translate(-5 5.708)" fill="none"
-                      stroke="#2871b4" stroke-width="1">
-                      <circle cx="9" cy="9" r="9" stroke="none" />
-                      <circle cx="9" cy="9" r="8.5" fill="none" />
-                    </g>
-                    <g id="Group_105" data-name="Group 105" transform="translate(0 9.708)">
-                      <rect id="Rectangle_78" data-name="Rectangle 78" width="1.838" height="5.521"
-                        transform="translate(0.106 2.657)" fill="#2871b4" />
-                      <path id="Path_642" data-name="Path 642"
-                        d="M156.616,139.963a1.979,1.979,0,0,0-1.532-.632,2.207,2.207,0,0,0-.638.086,1.448,1.448,0,0,0-.485.242,2.076,2.076,0,0,0-.532.584v-.785H151.6l.006.267q.006.267.006,1.649t-.011,3.6h1.833V141.9a1.345,1.345,0,0,1,.061-.451,1.183,1.183,0,0,1,.354-.476.9.9,0,0,1,.588-.192.793.793,0,0,1,.7.331,1.612,1.612,0,0,1,.226.916v2.952H157.2v-3.164A2.652,2.652,0,0,0,156.616,139.963Z"
-                        transform="translate(-148.639 -136.802)" fill="#2871b4" />
-                      <path id="Path_643" data-name="Path 643"
-                        d="M1.036,9.708a1.049,1.049,0,0,0-.749.27A.9.9,0,0,0,0,10.661a.913.913,0,0,0,.279.68,1,1,0,0,0,.735.273h.011a1.05,1.05,0,0,0,.755-.273.882.882,0,0,0,.281-.68.929.929,0,0,0-.284-.682A1.019,1.019,0,0,0,1.036,9.708Z"
-                        transform="translate(0 -9.708)" fill="#2871b4" />
-                    </g>
-                  </g>
-                </svg>
-                <a href="https://linkedin.com/in/abdullahturkmen">linkedin.com/in/abdullahturkmen</a>
-              </span>
-            </div>
-          </div>
-          <!-- Details Content End -->
-        </div>
-        <!-- Personal Details End -->
 
-        <!-- Personal Summary Start -->
-        <div class="row section summary">
-          <!-- Section Icon Start -->
-          <div class="col-12 col-xs-12 col-md-3 col-lg-2">
-            <div class="section-icon">
-              <svg xmlns="http://www.w3.org/2000/svg" width="34" height="38" viewBox="0 0 34 38">
-                <path id="Path_647" data-name="Path 647"
-                  d="M0,34.632A3.361,3.361,0,0,0,3.332,38H22.893a3.33,3.33,0,0,0,3.261-2.8,3.356,3.356,0,0,0,2.774-3.325V16.7h1.59a.542.542,0,0,0,.313-.092l2.908-2.016a.634.634,0,0,0,0-1.025l-2.908-2.037a.567.567,0,0,0-.313-.116h-1.59V8.072a.776.776,0,0,0-.255-.528l-6.62-7.2A.6.6,0,0,0,21.918.2L21.9.181A.555.555,0,0,0,21.49,0H6.058A3.343,3.343,0,0,0,2.786,2.8,3.366,3.366,0,0,0,0,6.128ZM9.762,15.476V12.641h20.17v2.835Zm21.319-.5V13.192l1.281.89ZM22.18,2.208l4.762,5.224H22.948a.725.725,0,0,1-.536-.222.827.827,0,0,1-.231-.563ZM6.058,1.226H21.032V6.646a1.964,1.964,0,0,0,1.916,2.011h4.831v2.758H9.217a.65.65,0,0,0-.6.647v.078L6.9,12.1H6.9a.612.612,0,0,0-.574.632L6.343,15.4a.594.594,0,0,0,.574.608h1.7v.09a.607.607,0,0,0,.6.6H10.43l-.008.919a1.4,1.4,0,0,0,.343.944,1.035,1.035,0,0,0,.744.358h6.973a.614.614,0,0,0,0-1.226H11.573c0-.077,0-.038,0-.048l.008-.948h16.2v15.17a2.154,2.154,0,0,1-2.16,2.144H6.058a2.173,2.173,0,0,1-2.182-2.144V3.465c0-.031.019-.063.019-.1a.624.624,0,0,0,0-.079A2.159,2.159,0,0,1,6.058,1.226Zm2.556,13.56H7.488l-.024-1.434,1.15.014ZM1.148,6.128A2.21,2.21,0,0,1,2.728,4.062v27.81a3.362,3.362,0,0,0,3.331,3.37h18.9a2.12,2.12,0,0,1-2.07,1.532H3.332a2.173,2.173,0,0,1-2.184-2.142Zm0,0"
-                  transform="translate(0 0)" fill="#12407d" />
-              </svg>
+            <div class="sidebar-section">
+                <h3>Frontend Teknolojileri</h3>
+                <div class="skill-item">
+                    <div class="skill-name">
+                        <span>HTML / CSS / SCSS</span>
+                        <span>8+ yıl</span>
+                    </div>
+                    <div class="skill-bar">
+                        <div class="skill-progress" style="width: 95%"></div>
+                    </div>
+                </div>
+                <div class="skill-item">
+                    <div class="skill-name">
+                        <span>JavaScript / TypeScript</span>
+                        <span>6+ yıl</span>
+                    </div>
+                    <div class="skill-bar">
+                        <div class="skill-progress" style="width: 90%"></div>
+                    </div>
+                </div>
+                <div class="skill-item">
+                    <div class="skill-name">
+                        <span>React / Next.js</span>
+                        <span>2+ yıl</span>
+                    </div>
+                    <div class="skill-bar">
+                        <div class="skill-progress" style="width: 85%"></div>
+                    </div>
+                </div>
+                <div class="skill-item">
+                    <div class="skill-name">
+                        <span>Vue.js / Nuxt.js</span>
+                        <span>4+ yıl</span>
+                    </div>
+                    <div class="skill-bar">
+                        <div class="skill-progress" style="width: 90%"></div>
+                    </div>
+                </div>
             </div>
-          </div>
-          <!-- Section Icon End -->
 
-          <!-- Section Content Start -->
-          <div class="col-12 col-xs-12 col-md-9 col-lg-10 pt-2">
-            <div class="section-title">Özet Bilgi</div>
-            <div class="section-content">
-              <p>
-                Bilgisayar ve yazılım dünyasına olan ilgimle birlikte kendimi sürekli geliştirmeye odaklandım. Akademik
-                eğitimin yanı sıra çeşitli projeler ve iş deneyimleriyle teknik becerilerimi güçlendirdim. Yeni
-                teknolojileri keşfetmeye, kendimi geliştirmeye ve daha iyisini başarmaya devam ediyorum.
-              </p>
+            <div class="sidebar-section">
+                <h3>UI Kütüphaneleri</h3>
+                <div class="skill-item">
+                    <div class="skill-name">
+                        <span>Tailwind CSS</span>
+                    </div>
+                </div>
+                <div class="skill-item">
+                    <div class="skill-name">
+                        <span>Bootstrap</span>
+                    </div>
+                </div>
+                <div class="skill-item">
+                    <div class="skill-name">
+                        <span>PrimeVue</span>
+                    </div>
+                </div>
+                <div class="skill-item">
+                    <div class="skill-name">
+                        <span>Element UI</span>
+                    </div>
+                </div>
+                <div class="skill-item">
+                    <div class="skill-name">
+                        <span>Vuetify</span>
+                    </div>
+                </div>
             </div>
-          </div>
-          <!-- Section Content End -->
-        </div>
-        <!-- Personal Summary End -->
 
-        <!-- Educations Start -->
-        <div class="row section education">
-          <!-- Section Icon Start -->
-          <div class="col-12 col-xs-12 col-md-3 col-lg-2">
-            <div class="section-icon">
-              <svg xmlns="http://www.w3.org/2000/svg" width="38" height="34" viewBox="0 0 38 34">
-                <path id="suitcase"
-                  d="M36.1,5.667H27.867V3.148A3.161,3.161,0,0,0,24.7,0H13.3a3.161,3.161,0,0,0-3.167,3.148V5.667H1.9A1.9,1.9,0,0,0,0,7.556V21.571a1.9,1.9,0,0,0,1.267,1.778v8.763A1.9,1.9,0,0,0,3.167,34H34.833a1.9,1.9,0,0,0,1.9-1.889V23.349A1.9,1.9,0,0,0,38,21.571V7.556a1.9,1.9,0,0,0-1.9-1.889ZM11.4,3.148a1.9,1.9,0,0,1,1.9-1.889H24.7a1.9,1.9,0,0,1,1.9,1.889V5.667H25.333V3.148a.632.632,0,0,0-.633-.63H13.3a.632.632,0,0,0-.633.63V5.667H11.4ZM24.067,5.667H13.933V3.778H24.067Zm11.4,26.444a.632.632,0,0,1-.633.63H3.167a.632.632,0,0,1-.633-.63V23.565l13.933,1.91v1.6a1.9,1.9,0,0,0,1.9,1.889h1.267a1.9,1.9,0,0,0,1.9-1.889v-1.6l13.933-1.91Zm-15.2-5.037a.632.632,0,0,1-.633.63H18.367a.632.632,0,0,1-.633-.63V23.3a.632.632,0,0,1,.633-.63h1.267a.632.632,0,0,1,.633.63Zm16.467-5.5a.631.631,0,0,1-.545.624l-.176.024L21.533,24.2V23.3a1.9,1.9,0,0,0-1.9-1.889H18.367a1.9,1.9,0,0,0-1.9,1.889V24.2L1.812,22.2a.631.631,0,0,1-.545-.624V7.556a.632.632,0,0,1,.633-.63H36.1a.632.632,0,0,1,.633.63Zm0,0"
-                  fill="#12407d" />
-              </svg>
+            <div class="sidebar-section">
+                <h3>Backend & Diğer</h3>
+                <div class="skill-item">
+                    <div class="skill-name">
+                        <span>Node.js</span>
+                    </div>
+                </div>
+                <div class="skill-item">
+                    <div class="skill-name">
+                        <span>Socket.IO</span>
+                    </div>
+                </div>
+                <div class="skill-item">
+                    <div class="skill-name">
+                        <span>Firebase</span>
+                    </div>
+                </div>
+                <div class="skill-item">
+                    <div class="skill-name">
+                        <span>MongoDB</span>
+                    </div>
+                </div>
             </div>
-          </div>
-          <!-- Section Icon End -->
 
-          <!-- Section Content Start -->
-          <div class="col-12 col-xs-12 col-md-9 col-lg-10 pt-2">
-            <div class="section-title">İş Deneyimleri</div>
-            <div class="section-content">
-              <ul class="list">
-                <li class="list-item">
-                  <div class="list-item-top d-block d-lg-inline-flex">
-                    <div class="list-item-head">
-                      <div class="list-item-title">Uzman Ön Yüz Geliştirici</div>
-                      <div class="list-item-subtitle spcl-light-blue">
-                        Pingpong University
-                      </div>
+            <div class="sidebar-section">
+                <h3>Mobil Geliştirme</h3>
+                <div class="skill-item">
+                    <div class="skill-name">
+                        <span>React Native</span>
                     </div>
-                    <div class="list-item-date">
-                      <span class="d-block">Eylül 2024, Devam</span>
-                      <span class="d-block"> Remote</span>
+                </div>
+                <div class="skill-item">
+                    <div class="skill-name">
+                        <span>Flutter</span>
                     </div>
-                  </div>
-                  <div class="list-item-text">
-                    <p>
-                      Mobil uygulamamız için yönetim paneli geliştirmeleri
-                    </p>
-                    <p>&nbsp;</p>
-                    <p>
-                      ChatGPT, Claude, LLaMA, Bard gibi AI modelleri ile çalışma
-                    </p>
-                  </div>
-                  <br><br>
-                  <div class="list-item-top d-block d-lg-inline-flex">
-                    <div class="list-item-head">
-                      <div class="list-item-title">Ön Yüz Geliştirici</div>
-                      <div class="list-item-subtitle spcl-light-blue">
-                        Pingpong University
-                      </div>
-                    </div>
-                    <div class="list-item-date">
-                      <span class="d-block">Ağustos 2023, Eylül 2024</span>
-                      <span class="d-block"> Remote</span>
-                    </div>
-                  </div>
-                  <div class="list-item-text">
-                    <p>
-                      Admin paneli geliştirmeleri
-                    </p>
-                    <p>&nbsp;</p>
-                    <p>
-                      Vue JS, Nuxt 3, Pinia, Restful API, JSON,
-                      JavaScript, Figma
-                    </p>
-                  </div>
-                </li>
-                <li class="list-item">
-                  <div class="list-item-top d-block d-lg-inline-flex">
-                    <div class="list-item-head">
-                      <div class="list-item-title">Ön Yüz Geliştirici</div>
-                      <div class="list-item-subtitle spcl-light-blue">
-                        Sompo Sigorta
-                      </div>
-                    </div>
-                    <div class="list-item-date">
-                      <span class="d-block">Mart 2023, Temmuz 2023</span>
-                      <span class="d-block"> Remote</span>
-                    </div>
-                  </div>
-                  <div class="list-item-text">
-                    <p>
-                      Şirket içerisindeki CMS ekranlarında VueJs teknolojilerini kulllanarak geliştirme yapıyorum
-                    </p>
-                    <p>&nbsp;</p>
-                    <p>
-                      Vue JS, Pinia, Restful API, JSON,
-                      JavaScript, Adobe XD, Figma
-                    </p>
-                  </div>
-                </li>
-                <li class="list-item">
-                  <div class="list-item-top d-block d-lg-inline-flex">
-                    <div class="list-item-head">
-                      <div class="list-item-title">Ön Uç Geliştirici</div>
-                      <div class="list-item-subtitle spcl-light-blue">
-                        SahaBT(Experilabs)
-                      </div>
-                    </div>
-                    <div class="list-item-date">
-                      <span class="d-block">Mart 2022, Mart 2023 (1 Yıl)</span>
-                      <span class="d-block"> Remote</span>
-                    </div>
-                  </div>
-                  <div class="list-item-text">
-                    <p>
-                      SahaBT(Experilabs) yönlendirmesi ile Softtech firmasında çeşitli projelerde görev aldım ve bu
-                      çalışmalarım web projelerinin ön yüzleri ile ilgili çeşitli çalışmalardan oluşmaktadır.
-                    </p>
-                    <p>&nbsp;</p>
-                    <p>
-                      HTML, CSS (Scss, Bootstrap), Restful API, JSON,
-                      JavaScript, Vue JS, Adobe XD, Figma
-                    </p>
-                  </div>
-                </li>
-                <li class="list-item">
-                  <div class="list-item-top d-block d-lg-inline-flex">
-                    <div class="list-item-head">
-                      <div class="list-item-title">Ön Uç Geliştirici</div>
-                      <div class="list-item-subtitle spcl-light-blue">
-                        ICRYPEX Crypto Exchange
-                      </div>
-                    </div>
-                    <div class="list-item-date">
-                      <span class="d-block">Eylül 2021, Şubat 2022 (5 Ay)</span>
-                      <span class="d-block"> İstanbul, Türkiye</span>
-                    </div>
-                  </div>
-                  <div class="list-item-text">
-                    <p>
-                      Kuruma ve kurum ortak firmalarına ait web sitelerinin UI
-                      tasarımlarını gerekli araçları kullanarak uygun hale
-                      getirilmesi
-                    </p>
-                    <p>&nbsp;</p>
-                    <p>
-                      HTML, CSS (Scss, Bootstrap), Restful API, JSON,
-                      JavaScript, Vue JS, Adobe XD, Figma
-                    </p>
-                  </div>
-                </li>
-                <li class="list-item">
-                  <div class="list-item-top d-block d-lg-inline-flex">
-                    <div class="list-item-head">
-                      <div class="list-item-title">Frontend Developer</div>
-                      <div class="list-item-subtitle spcl-light-blue">
-                        Alaca Ajans
-                      </div>
-                    </div>
-                    <div class="list-item-date">
-                      <span class="d-block">
-                        Nisan 2020, Eylül 2021 (1 Yıl, 6 Ay)
-                      </span>
-                      <span class="d-block"> İstanbul, Türkiye</span>
-                    </div>
-                  </div>
-                  <div class="list-item-text">
-                    <p>
-                      Web sitelerinin yazılması, yönetilmesi, cms
-                      sistemlerinin kurulumu, Psd to HTML ön yüz tasarımları
-                    </p>
-                    <p>&nbsp;</p>
-                    <p>
-                      HTML, CSS (Scss, Bootstrap), jQuery, Ajax, Php, Mysql,
-                      Restful API, JSON, Soap, XML, Wordpress, WooCommerce
-                    </p>
-                  </div>
-                </li>
-                <li class="list-item">
-                  <div class="list-item-top d-block d-lg-inline-flex">
-                    <div class="list-item-head">
-                      <div class="list-item-title">Frontend Developer</div>
-                      <div class="list-item-subtitle spcl-light-blue">
-                        Nacar Medya
-                      </div>
-                    </div>
-                    <div class="list-item-date">
-                      <span class="d-block">
-                        Kasım 2019, Nisan 2020 (6 Ay)
-                      </span>
-                      <span class="d-block"> İstanbul, Türkiye</span>
-                    </div>
-                  </div>
-                  <div class="list-item-text">
-                    <p>
-                      Daha önceden oluşturulmuş web arayüzleri üzerinde
-                      iyileştirme çalışmaları, responsive ve performans
-                      hatalarının giderilmesi
-                    </p>
-                    <p>&nbsp;</p>
-                    <p>
-                      HTML, CSS (Scss, Bootstrap), jQuery, Restful API, JSON
-                    </p>
-                  </div>
-                </li>
-                <li class="list-item">
-                  <div class="list-item-top d-block d-lg-inline-flex">
-                    <div class="list-item-head">
-                      <div class="list-item-title">
-                        Frontend Developer / Stajyer
-                      </div>
-                      <div class="list-item-subtitle spcl-light-blue">
-                        Milat Reklam
-                      </div>
-                    </div>
-                    <div class="list-item-date">
-                      <span class="d-block">
-                        Eylül 2016, Ekim 2017 (1 Yıl, 2 Ay)
-                      </span>
-                      <span class="d-block"> İstanbul, Türkiye</span>
-                    </div>
-                  </div>
-                  <div class="list-item-text">
-                    <p>
-                      Kuruma ve müşterilere ait web sitelerinin tasarlanması
-                    </p>
-                    <p>&nbsp;</p>
-                    <p>HTML, CSS (Bootstrap), jQuery, Php, Mysql</p>
-                  </div>
-                </li>
-              </ul>
+                </div>
             </div>
-          </div>
-          <!-- Section Content End -->
-        </div>
-        <!-- Educations End -->
 
-        <!-- Experiences Start -->
-        <div class="row section experience">
-          <!-- Section Icon Start -->
-          <div class="col-12 col-xs-12 col-md-3 col-lg-2">
-            <div class="section-icon">
-              <svg id="Group_107" data-name="Group 107" xmlns="http://www.w3.org/2000/svg" width="38" height="36"
-                viewBox="0 0 38 36">
-                <g id="Group_106" data-name="Group 106">
-                  <path id="Path_652" data-name="Path 652"
-                    d="M342.75,443.745a.632.632,0,0,0-.768.46l-.633,2.533a.633.633,0,0,0,.461.768.614.614,0,0,0,.154.019.633.633,0,0,0,.614-.479l.633-2.533A.634.634,0,0,0,342.75,443.745Z"
-                    transform="translate(-315.997 -411.526)" fill="#12407d" />
-                  <path id="Path_653" data-name="Path 653"
-                    d="M19,154.566a.627.627,0,0,0,.242-.048l6.967-2.883a.633.633,0,0,0-.485-1.17L19,153.247,1.267,145.91v-.21A.633.633,0,0,0,0,145.7v.633a.633.633,0,0,0,.391.585l18.367,7.6A.627.627,0,0,0,19,154.566Z"
-                    transform="translate(0 -135.371)" fill="#12407d" />
-                  <path id="Path_654" data-name="Path 654"
-                    d="M105.536,240.055a.632.632,0,0,0-.848-.288,14.761,14.761,0,0,1-6.053,1.381v-5.682a.633.633,0,0,0-1.267,0v5.676c-7.864-.251-10.4-5.015-10.767-5.808v-4.3a.633.633,0,0,0-1.267,0v4.433a.641.641,0,0,0,.045.236c.11.274,2.806,6.731,12.622,6.731a16.277,16.277,0,0,0,7.247-1.53A.632.632,0,0,0,105.536,240.055Z"
-                    transform="translate(-79.002 -214.206)" fill="#12407d" />
-                  <path id="Path_655" data-name="Path 655"
-                    d="M376.1,452.266a.633.633,0,0,0-.633.633v1.9a.633.633,0,0,0,1.267,0v-1.9A.633.633,0,0,0,376.1,452.266Z"
-                    transform="translate(-347.6 -419.433)" fill="#12407d" />
-                  <path id="Path_656" data-name="Path 656"
-                    d="M37.367,26.727a.639.639,0,0,0-.633.644v.213l-7.6,3.181V29.6l8.475-3.567a.648.648,0,0,0,0-1.19L19.242,17.116a.624.624,0,0,0-.484,0L.391,24.844a.648.648,0,0,0,0,1.19l18.367,7.728a.622.622,0,0,0,.484,0l6.641-2.794a.647.647,0,0,0,.343-.841.63.63,0,0,0-.827-.348L19,32.471,2.289,25.439,19,18.408l16.71,7.031L28.439,28.5l-6.965-2.644a1.562,1.562,0,0,0,.059-.415c0-1.083-1.113-1.932-2.533-1.932s-2.533.849-2.533,1.932S17.579,27.371,19,27.371a3.023,3.023,0,0,0,1.639-.459l7.228,2.744V31.72h0v13.8a1.9,1.9,0,1,0,1.267,0V41.867a7.823,7.823,0,0,0,2.5-3.337.661.661,0,0,0,.035-.211V33.812a.633.633,0,1,0-1.267,0V38.2a6.6,6.6,0,0,1-1.267,1.946V32.158l8.475-3.547a.644.644,0,0,0,.392-.6v-.644A.639.639,0,0,0,37.367,26.727ZM19,26.083c-.773,0-1.267-.381-1.267-.644S18.227,24.8,19,24.8s1.267.381,1.267.644S19.773,26.083,19,26.083Zm9.5,21.9a.644.644,0,1,1,.633-.644A.639.639,0,0,1,28.5,47.98Z"
-                    transform="translate(0 -17.068)" fill="#12407d" />
-                  <path id="Path_657" data-name="Path 657"
-                    d="M402.314,444.208a.633.633,0,0,0-1.229.308l.633,2.533a.634.634,0,0,0,.614.479.613.613,0,0,0,.154-.019.633.633,0,0,0,.461-.768Z"
-                    transform="translate(-371.299 -411.529)" fill="#12407d" />
-                </g>
-              </svg>
+            <div class="sidebar-section">
+                <h3>Diller</h3>
+                <div class="skill-item">
+                    <div class="skill-name">
+                        <span>Türkçe</span>
+                        <span>Ana Dil</span>
+                    </div>
+                </div>
+                <div class="skill-item">
+                    <div class="skill-name">
+                        <span>İngilizce</span>
+                        <span>İyi</span>
+                    </div>
+                </div>
             </div>
-          </div>
-          <!-- Section Icon End -->
+        </aside>
 
-          <!-- Section Content Start -->
-          <div class="col-12 col-xs-12 col-md-9 col-lg-10 pt-2">
-            <div class="section-title">Eğitim Bilgileri</div>
-            <div class="section-content">
-              <ul class="list">
-                <li class="list-item">
-                  <div class="list-item-top d-block d-lg-inline-flex">
-                    <div class="list-item-head">
-                      <div class="list-item-title">Sakarya Üniversitesi</div>
-                      <div class="list-item-subtitle spcl-light-blue">
-                        Bilgisayar Programcılığı
-                      </div>
-                    </div>
-                    <div class="list-item-date">
-                      <span class="d-block">Eylül 2015 - Haziran 2017 (3.08)</span>
-                      <span class="d-block">Sakarya, Türkiye</span>
-                    </div>
-                  </div>
-                </li>
-              </ul>
-            </div>
-          </div>
-          <!-- Section Content End -->
-        </div>
-        <!-- Experiences End -->
+        <main class="main-content">
+            <section class="summary">
+                <p>7+ yıllık deneyime sahip, modern web teknolojileri konusunda uzmanlaşmış Frontend Developer. React,
+                    Vue.js ve Next.js ile ölçeklenebilir, performanslı kullanıcı arayüzleri geliştirme konusunda
+                    tecrübeli. Fintech, sigorta ve eğitim sektörlerinde projeler geliştirerek, kullanıcı
+                    deneyimini ön planda tutan çözümler ürettim.</p>
+            </section>
 
-        <!-- Languages Start -->
-        <div class="row section language">
-          <!-- Section Icon Start -->
-          <div class="col-12 col-xs-12 col-md-3 col-lg-2">
-            <div class="section-icon">
-              <svg xmlns="http://www.w3.org/2000/svg" width="38" height="32" viewBox="0 0 38 32">
-                <g id="outline" transform="translate(-15.997 -56)">
-                  <path id="Path_658" data-name="Path 658"
-                    d="M103.382,59.7a.643.643,0,0,0-.233-.465,14.056,14.056,0,0,0-7.592-3.166c-.462-.046-.932-.069-1.4-.069h-.02c-.47,0-.94.023-1.4.069a14.083,14.083,0,0,0-10.41,6.306l0,.007h0a14.149,14.149,0,0,0,.918,16.767.643.643,0,0,0,.465.233h.031a.643.643,0,0,0,.455-.188l19.009-19.009A.643.643,0,0,0,103.382,59.7ZM92.059,69.5H88.112a18.918,18.918,0,0,1,.8-4.84A40.823,40.823,0,0,0,93.5,65V68.06ZM81.3,69.5a12.785,12.785,0,0,1,1.839-6.016,40.606,40.606,0,0,0,4.482.989,20.208,20.208,0,0,0-.8,5.027ZM93.1,57.329c.133-.011.267-.02.4-.027V63.71a39.554,39.554,0,0,1-4.169-.29A18.742,18.742,0,0,1,93.1,57.329Zm-2.327,13.46-2.423,2.423a19.062,19.062,0,0,1-.238-2.423ZM94.788,65q.924-.015,1.85-.072l-1.85,1.85Zm3.253-1.475c-1.076.107-2.167.171-3.253.189V57.3c.134.007.268.016.4.027a18.815,18.815,0,0,1,3.536,5.508Zm-6.894-5.884a19.964,19.964,0,0,0-3.119,5.6,39.379,39.379,0,0,1-4.12-.873A12.787,12.787,0,0,1,91.147,57.637ZM83.79,77.772A12.885,12.885,0,0,1,81.3,70.788h5.524a20.309,20.309,0,0,0,.423,3.525ZM99.7,61.858a20.039,20.039,0,0,0-2.561-4.222,12.763,12.763,0,0,1,4.629,2.154Z"
-                    transform="translate(-58.859)" fill="#12407d" />
-                  <path id="Path_659" data-name="Path 659"
-                    d="M162.122,118.537a14.188,14.188,0,0,0-.918-1.243.643.643,0,0,0-.95-.045l-19.009,19.009a.643.643,0,0,0,.045.95,14.057,14.057,0,0,0,7.592,3.166,14.4,14.4,0,0,0,2.7.012v3.273a.643.643,0,0,0,1.115.436l5.766-6.247a14.148,14.148,0,0,0,3.659-19.311Zm-4.455,18.3a.646.646,0,0,0-.1.09l-4.7,5.089v-2.351a.643.643,0,0,0-.734-.637c-.195.028-.375.05-.553.068a13.064,13.064,0,0,1-2.57,0,12.767,12.767,0,0,1-6.341-2.441l17.981-17.981q.208.281.4.571A12.863,12.863,0,0,1,157.667,136.835Z"
-                    transform="translate(-115.469 -56.302)" fill="#12407d" />
-                  <ellipse id="Ellipse_14" data-name="Ellipse 14" cx="1" cy="1.5" rx="1" ry="1.5"
-                    transform="translate(33.73 74.977)" fill="#12407d" />
-                  <ellipse id="Ellipse_15" data-name="Ellipse 15" cx="1" cy="1.5" rx="1" ry="1.5"
-                    transform="translate(37.68 74.977)" fill="#12407d" />
-                  <ellipse id="Ellipse_16" data-name="Ellipse 16" cx="1" cy="1.5" rx="1" ry="1.5"
-                    transform="translate(41.629 74.977)" fill="#12407d" />
-                  <path id="Path_660" data-name="Path 660"
-                    d="M21.14,92.2a.643.643,0,0,0-.718.558l-.054.434a16.719,16.719,0,0,1,1.868-21.555.643.643,0,1,0-.9-.914,18,18,0,0,0-2.044,23.166l-.543-.08a.643.643,0,0,0-.188,1.272l2.17.321a.643.643,0,0,0,.732-.556l.241-1.929a.643.643,0,0,0-.558-.718Z"
-                    transform="translate(0 -13.365)" fill="#12407d" />
-                  <path id="Path_661" data-name="Path 661"
-                    d="M419.1,81.286a.643.643,0,1,0,0-1.286h-1.929a.643.643,0,0,0-.643.643v1.929a.643.643,0,1,0,1.286,0V82.36a16.717,16.717,0,0,1-1.625,21.62.643.643,0,0,0,.914.9,18,18,0,0,0,1.514-23.6Z"
-                    transform="translate(-368.315 -22.071)" fill="#12407d" />
-                </g>
-              </svg>
-            </div>
-          </div>
-          <!-- Section Icon End -->
+            <section class="section">
+                <h2 class="section-title">İş Deneyimi</h2>
 
-          <!-- Section Content Start -->
-          <div class="col-12 col-xs-12 col-md-9 col-lg-10 pt-2">
-            <div class="section-title">Yabancı Dil Bilgileri</div>
-            <div class="section-content">
-              <ul class="list">
-                <li class="list-item">
-                  <div class="list-item-top d-block d-lg-inline-flex">
-                    <div class="list-item-head">
-                      <div class="list-item-title">İngilizce</div>
-                      <div class="list-item-subtitle spcl-light-blue">
-                        A1 - Elementary
-                      </div>
+                <div class="experience-item">
+                    <div class="experience-header">
+                        <div>
+                            <div class="company">Onsmaster Kripto Varlık Platformu</div>
+                            <div class="job-title">Software Developer</div>
+                        </div>
+                        <span class="date">Mayıs 2025 - Devam Ediyor</span>
                     </div>
-                    <div class="list-item-detail mx-0 mx-lg-5">
-                      <span class="d-block spcl-light-blue">Okuma</span>
-                      <span class="d-block">Orta</span>
+                    <div class="experience-desc">
+                        <ul>
+                            <li>Yeni kurulan kripto para borsası platformunun web sitesi ve admin paneli frontend
+                                yapısının geliştirilmesi</li>
+                            <li>React ve Next.js kullanılarak trading arayüzlerinin sıfırdan oluşturulması</li>
+                            <li>WebSocket ve Socket.IO ile canlı fiyat verilerinin ve emir defteri güncellemelerinin
+                                entegrasyonu</li>
+                            <li>Performans optimizasyonu, hata yönetimi ve kullanıcı deneyimi geliştirmelerinin
+                                uygulanması</li>
+                            <li>Responsive ve mobil uyumlu arayüzlerin tasarlanması ve kodlanması</li>
+                            <li>Mobil geliştirici ekibi katılmadan önce React Native altyapısının kurulumu ve temel
+                                bileşenlerin yazılması</li>
+                            <li>Platformun müşteri alımına açılma sürecinde frontend tarafındaki tüm geliştirme ve test
+                                süreçlerinin yürütülmesi</li>
+                        </ul>
+                        <div class="tech-tags">
+                            <span class="tag">React JS</span>
+                            <span class="tag">React Native</span>
+                            <span class="tag">Vue JS</span>
+                            <span class="tag">Next.js</span>
+                            <span class="tag">Socket.IO</span>
+                            <span class="tag">TypeScript</span>
+                            <span class="tag">Bootstrap</span>
+                            <span class="tag">Tailwind</span>
+                            <span class="tag">SCSS</span>
+                        </div>
+                        <div class="project-link">
+                            🔗 <a href="https://www.onsmaster.com" target="_blank">Web Sitesi</a>
+                        </div>
                     </div>
-                    <div class="list-item-detail mx-0 mx-lg-5">
-                      <span class="d-block spcl-light-blue">Yazma</span>
-                      <span class="d-block">Orta</span>
-                    </div>
-                    <div class="list-item-detail mx-0 mx-lg-5">
-                      <span class="d-block spcl-light-blue">Konuşma</span>
-                      <span class="d-block">Az</span>
-                    </div>
-                  </div>
-                  <div class="list-item-text">
-                    <p>
-                      Marmara üniversitesinde 1 yıl ingilizce eğitimi alarak
-                      belirli bir seviyeye getirdim ingilizcemi. Teknik
-                      döküman ve videoları incelerken işlerimi farklı
-                      kaynaklardan görebiliyorum!
-                    </p>
-                  </div>
-                </li>
-              </ul>
-            </div>
-          </div>
-          <!-- Section Content End -->
-        </div>
-        <!-- Languages End -->
+                </div>
 
-        <!-- Courses Start -->
-        <div class="row section course d-none">
-          <!-- Section Icon Start -->
-          <div class="col-12 col-xs-12 col-md-3 col-lg-2">
-            <div class="section-icon">
-              <svg xmlns="http://www.w3.org/2000/svg" width="38" height="38" viewBox="0 0 38 38">
-                <g id="seminar" transform="translate(0 0)">
-                  <path id="Path_662" data-name="Path 662"
-                    d="M25.742,26.968H24.516V22.538a4.27,4.27,0,0,0-3.325-4.18l-4.642-1.071V16.079a4.935,4.935,0,0,0,1.176-1.37H19a3.054,3.054,0,0,0,1.839-5.5V7.355a7.355,7.355,0,0,0-14.71,0V9.209a3.054,3.054,0,0,0,1.839,5.5H9.244a4.925,4.925,0,0,0,1.176,1.37v1.207L5.777,18.358a4.27,4.27,0,0,0-3.325,4.18v4.429H1.226A1.227,1.227,0,0,0,0,28.194v1.226a1.227,1.227,0,0,0,1.226,1.226V38H25.742V30.645a1.227,1.227,0,0,0,1.226-1.226V28.194A1.227,1.227,0,0,0,25.742,26.968ZM10.893,18.436l1.494,1.12-1.511.906-.325-1.949Zm5.182,0,.432.1-.389,1.943-1.537-.922ZM19,13.484h-.774a4.875,4.875,0,0,0,.161-1.226V9.806H19a1.839,1.839,0,0,1,0,3.677ZM7.355,7.355a6.129,6.129,0,0,1,12.258,0V8.643A3.067,3.067,0,0,0,19,8.581h-.613V7.355H17.161V7.7a3.593,3.593,0,0,1-1.48.771c.024-.023.05-.043.074-.067l-.867-.867a3.586,3.586,0,0,1-1.659.933c.024-.023.05-.043.074-.067l-.867-.867A3.6,3.6,0,0,1,9.912,8.581H9.806V7.355H8.581V8.581H7.968a3.067,3.067,0,0,0-.613.062Zm.613,6.129a1.839,1.839,0,0,1,0-3.677h.613v2.452a4.875,4.875,0,0,0,.161,1.226Zm1.839-1.226V9.806h.105a4.79,4.79,0,0,0,1.733-.332v.332h.718A4.79,4.79,0,0,0,14.1,9.475v.332h.718a4.824,4.824,0,0,0,2.346-.62v3.071a3.659,3.659,0,0,1-.215,1.226H13.484V14.71h2.734a3.672,3.672,0,0,1-6.411-2.452Zm3.677,4.9a4.87,4.87,0,0,0,1.839-.361v.667l-1.839,1.379-1.839-1.379V16.8A4.87,4.87,0,0,0,13.484,17.161ZM3.677,22.538a3.05,3.05,0,0,1,2.375-2.986l3.3-.762.608,3.65,3.521-2.113,3.495,2.1.722-3.614,3.214.742a3.05,3.05,0,0,1,2.375,2.986v4.429H20.226v-4.29H19v4.29H7.968v-4.29H6.742v4.29H3.677Zm4.29,14.236H6.742V33.71a.613.613,0,1,1,1.226,0Zm6.129,0H12.871V33.71a.613.613,0,1,1,1.226,0Zm6.129,0H19V33.71a.613.613,0,1,1,1.226,0Zm4.29,0H21.452V33.71a1.839,1.839,0,1,0-3.677,0v3.065H15.323V33.71a1.839,1.839,0,1,0-3.677,0v3.065H9.194V33.71a1.839,1.839,0,1,0-3.677,0v3.065H2.452V30.645H24.516ZM1.226,29.419V28.194H25.742v1.226Zm0,0"
-                    fill="#12407d" />
-                  <path id="Path_663" data-name="Path 663"
-                    d="M316.871,0H305.839A1.841,1.841,0,0,0,304,1.839V9.194a1.841,1.841,0,0,0,1.839,1.839h2.315v3.73l4.643-3.73h4.075a1.841,1.841,0,0,0,1.839-1.839V1.839A1.841,1.841,0,0,0,316.871,0Zm.613,9.194a.613.613,0,0,1-.613.613h-4.506l-2.986,2.4v-2.4h-3.541a.613.613,0,0,1-.613-.613V1.839a.613.613,0,0,1,.613-.613h11.032a.613.613,0,0,1,.613.613Zm0,0"
-                    transform="translate(-280.71 0)" fill="#12407d" />
-                  <path id="Path_664" data-name="Path 664" d="M336,32h1.226v1.226H336Zm0,0"
-                    transform="translate(-310.258 -29.548)" fill="#12407d" />
-                  <path id="Path_665" data-name="Path 665" d="M368,32h7.355v1.226H368Zm0,0"
-                    transform="translate(-339.806 -29.548)" fill="#12407d" />
-                  <path id="Path_666" data-name="Path 666" d="M336,64h9.806v1.226H336Zm0,0"
-                    transform="translate(-310.258 -59.097)" fill="#12407d" />
-                  <path id="Path_667" data-name="Path 667" d="M336,96h9.806v1.226H336Zm0,0"
-                    transform="translate(-310.258 -88.645)" fill="#12407d" />
-                </g>
-              </svg>
-            </div>
-          </div>
-          <!-- Section Icon End -->
+                <div class="experience-item">
+                    <div class="experience-header">
+                        <div>
+                            <div class="company">Pingpong University</div>
+                            <div class="job-title">Senior Frontend Developer</div>
+                        </div>
+                        <span class="date">Ağustos 2023 - Mayıs 2025 (1 Yıl 9 Ay)</span>
+                    </div>
+                    <div class="experience-desc">
+                        <ul>
+                            <li>Online eğitim platformunun frontend altyapısının geliştirilmesi</li>
+                            <li>Yeni yönetim paneline geçiş sürecinin yönetilmesi</li>
+                            <li>Öğrenci yönetim paneli ve dashboard tasarımları</li>
+                            <li>Responsive tasarım ve mobil optimizasyon çalışmaları</li>
+                        </ul>
+                        <div class="tech-tags">
+                            <span class="tag">Vue.js</span>
+                            <span class="tag">Nuxt JS</span>
+                            <span class="tag">JavaScript</span>
+                            <span class="tag">Bootstrap</span>
+                        </div>
+                    </div>
+                </div>
 
-          <!-- Section Content Start -->
-          <div class="col-12 col-xs-12 col-md-9 col-lg-10 pt-2">
-            <div class="section-title">Seminerler ve Kurslar</div>
-            <div class="section-content">
-              <ul class="list">
-                <li class="list-item">
-                  <div class="list-item-top d-block d-lg-inline-flex">
-                    <div class="list-item-head">
-                      <div class="list-item-title">Logo Sistem Uzmanı</div>
-                      <div class="list-item-subtitle spcl-light-blue">
-                        LOGO Business Solutions
-                      </div>
+                <div class="experience-item">
+                    <div class="experience-header">
+                        <div>
+                            <div class="company">Sompo Sigorta</div>
+                            <div class="job-title">Frontend Developer</div>
+                        </div>
+                        <span class="date">Şubat 2022 - Ağustos 2023 (1 Yıl 6 Ay)</span>
                     </div>
-                    <div class="list-item-date">
-                      <span class="d-block">2010</span>
+                    <div class="experience-desc">
+                        <ul>
+                            <li>Kurumsal sigorta platformlarının arayüz geliştirme süreçleri</li>
+                            <li>Müşteri portalı ve dahili yönetim panellerinin geliştirilmesi</li>
+                            <li>Form validasyonları ve kullanıcı etkileşim akışlarının optimize edilmesi</li>
+                            <li>Cross-browser uyumluluğu ve accessibility standartlarına uygun geliştirme</li>
+                        </ul>
+                        <div class="tech-tags">
+                            <span class="tag">Vue.js</span>
+                            <span class="tag">PrimeVue</span>
+                            <span class="tag">Bootstrap</span>
+                            <span class="tag">JavaScript</span>
+                            <span class="tag">SCSS</span>
+                        </div>
                     </div>
-                  </div>
-                  <div class="list-item-text">
-                    <p>
-                      Lorem ipsum dolor sit amet, consectetur adipiscing elit,
-                      sed do eiusmod.
-                    </p>
-                  </div>
-                </li>
-                <li class="list-item">
-                  <div class="list-item-top d-block d-lg-inline-flex">
-                    <div class="list-item-head">
-                      <div class="list-item-title">Solidworks</div>
-                      <div class="list-item-subtitle spcl-light-blue">
-                        Milli Eğitim Bakanlığı
-                      </div>
-                    </div>
-                    <div class="list-item-date">
-                      <span class="d-block">2010</span>
-                    </div>
-                  </div>
-                  <div class="list-item-text">
-                    <p>
-                      Lorem ipsum dolor sit amet, consectetur adipiscing elit,
-                      sed do eiusmod.
-                    </p>
-                  </div>
-                </li>
-              </ul>
-            </div>
-          </div>
-          <!-- Section Content End -->
-        </div>
-        <!-- Courses End -->
+                </div>
 
-        <!-- Certificated Start -->
-        <div class="row section certifica">
-          <!-- Section Icon Start -->
-          <div class="col-12 col-xs-12 col-md-3 col-lg-2">
-            <div class="section-icon">
-              <svg xmlns="http://www.w3.org/2000/svg" width="38" height="38" viewBox="0 0 38 38">
-                <g id="diploma" transform="translate(0 -0.016)">
-                  <path id="Path_668" data-name="Path 668"
-                    d="M31.869,206.06l-12.435-4.083a2.51,2.51,0,0,0-3.367-2.552l-8.683-7.5a.634.634,0,0,0-.963.162l-.976,1.7a3.8,3.8,0,0,0-4.618,1.661l-.317.548a3.8,3.8,0,0,0,1.42,5.21l9.677,4.96a2.539,2.539,0,0,0,.459,2.138l-2,3.457a.634.634,0,0,0,.713.929l1.986-.532.532,1.986a.633.633,0,0,0,.529.464.675.675,0,0,0,.083.006.635.635,0,0,0,.55-.317l2.733-4.734,6.663,4.3a3.8,3.8,0,0,0,5.2-1.394l.317-.548,2.852-4.94a.634.634,0,0,0-.352-.919ZM17.545,200.7a1.267,1.267,0,0,1,.463,1.732l-2.852,4.944a1.268,1.268,0,0,1-2.2-1.268l2.852-4.94a1.268,1.268,0,0,1,1.735-.468ZM7.138,193.383l6.347,5.486-6.931-4.476Zm-5.784,5.164a2.523,2.523,0,0,1,.253-1.924l.317-.548a2.535,2.535,0,0,1,3.436-.944L14.45,201l-2.312,4.006-9.6-4.92a2.516,2.516,0,0,1-1.181-1.539Zm12.774,13.784-.3-1.119a.634.634,0,0,0-.776-.448l-1.12.3,1.147-1.986a2.521,2.521,0,0,0,2.672-.452l.376.242Zm10.391.448L16.5,207.6l2.376-4.115,8.471,4.344a2.535,2.535,0,0,1,.928,3.463l-.317.548a2.536,2.536,0,0,1-3.436.942Zm5.16-3.929a3.785,3.785,0,0,0-1.728-2.14l-3.272-1.673,6.054,1.987Zm0,0"
-                    transform="translate(0 -176.591)" fill="#12407d" />
-                  <path id="Path_669" data-name="Path 669"
-                    d="M155.058,6.99l.786-2.43a.634.634,0,0,0-.317-.761l-2.272-1.161L152.094.364a.634.634,0,0,0-.761-.317L148.9.836,146.473.049a.634.634,0,0,0-.76.317l-1.161,2.272L142.277,3.8c-.01.006-.017.015-.027.021H131.157a3.173,3.173,0,0,0-3.169,3.169V15.7a.634.634,0,1,0,1.268,0V6.99a1.9,1.9,0,0,1,1.9-1.9h10.977l.615,1.9-.786,2.43a.633.633,0,0,0,.317.76l2.275,1.162,1.162,2.275a.634.634,0,0,0,.761.317l2.427-.789.634.205V27.272a.634.634,0,0,0,1.268,0V13.76l.53.171a.633.633,0,0,0,.76-.317l1.162-2.275,2.275-1.162a.634.634,0,0,0,.317-.761Zm-1.268.195.683,2.111-1.976,1.01a.631.631,0,0,0-.276.276l-1.011,1.976-2.112-.683a.626.626,0,0,0-.39,0l-2.112.683-1.01-1.976a.631.631,0,0,0-.276-.276L143.335,9.3l.683-2.111a.619.619,0,0,0,0-.39l-.683-2.111,1.976-1.01a.632.632,0,0,0,.276-.276l1.01-1.976,2.112.683a.63.63,0,0,0,.39,0l2.112-.683L152.22,3.4a.632.632,0,0,0,.276.276l1.976,1.01-.683,2.111a.637.637,0,0,0,0,.39Zm0,0"
-                    transform="translate(-117.879 0)" fill="#12407d" />
-                  <path id="Path_670" data-name="Path 670"
-                    d="M355.157,48.047a3.169,3.169,0,1,0,3.169,3.169A3.169,3.169,0,0,0,355.157,48.047Zm0,5.07a1.9,1.9,0,1,1,1.9-1.9A1.9,1.9,0,0,1,355.157,53.117Zm0,0"
-                    transform="translate(-324.133 -44.226)" fill="#12407d" />
-                  <path id="Path_671" data-name="Path 671"
-                    d="M192.622,193.315H203.4a.634.634,0,0,0,0-1.268H192.622a.634.634,0,1,0,0,1.268Zm0,0"
-                    transform="translate(-176.796 -176.83)" fill="#12407d" />
-                  <path id="Path_672" data-name="Path 672"
-                    d="M225.5,232.047h-8.873a.634.634,0,0,0,0,1.268H225.5a.634.634,0,1,0,0-1.268Zm0,0"
-                    transform="translate(-198.895 -213.664)" fill="#12407d" />
-                  <path id="Path_673" data-name="Path 673"
-                    d="M277.058,272.047h-4.437a.634.634,0,0,0,0,1.268h4.437a.634.634,0,1,0,0-1.268Zm0,0"
-                    transform="translate(-250.46 -250.497)" fill="#12407d" />
-                  <path id="Path_674" data-name="Path 674"
-                    d="M193.889,113.315h3.8a.634.634,0,0,0,0-1.268h-3.8a1.9,1.9,0,1,0,0,3.8h3.8a.634.634,0,0,0,0-1.268h-3.8a.634.634,0,0,1,0-1.268Zm0,0"
-                    transform="translate(-176.793 -103.163)" fill="#12407d" />
-                </g>
-              </svg>
-            </div>
-          </div>
-          <!-- Section Icon End -->
+                <div class="experience-item">
+                    <div class="experience-header">
+                        <div>
+                            <div class="company">Experilabs (Softtech - Outsource)</div>
+                            <div class="job-title">Frontend Developer</div>
+                        </div>
+                        <span class="date">Mayıs 2021 - Şubat 2022 (9 Ay)</span>
+                    </div>
+                    <div class="experience-desc">
+                        <ul>
+                            <li>Bankacılık uygulamaları için güvenlik odaklı frontend modüllerinin Vue.js ve Nuxt.js ile
+                                geliştirilmesi</li>
+                            <li>Login, logout, register ve şifre sıfırlama gibi kimlik doğrulama sayfalarının
+                                tasarlanması ve uygulanması</li>
+                            <li>Keycloak tabanlı kimlik doğrulama ve yetkilendirme entegrasyonlarının gerçekleştirilmesi
+                            </li>
+                            <li>RESTful API entegrasyonları ve güvenli token yönetimi süreçlerinin yürütülmesi</li>
+                            <li>Proje mimarisinin oluşturulması ve kod kalitesinin artırılmasına yönelik refactor
+                                çalışmaları</li>
+                            <li>Agile metodolojisi ile sprint planlama, geliştirme ve test süreçlerine aktif katılım
+                            </li>
+                        </ul>
+                        <div class="tech-tags">
+                            <span class="tag">Vue.js</span>
+                            <span class="tag">Nuxt.js</span>
+                            <span class="tag">Vuex</span>
+                            <span class="tag">REST API</span>
+                        </div>
+                    </div>
+                </div>
 
-          <!-- Section Content Start -->
-          <div class="col-12 col-xs-12 col-md-9 col-lg-10 pt-2">
-            <div class="section-title">Sertifikalar</div>
-            <div class="section-content">
-              <ul class="list">
-                <li class="list-item">
-                  <div class="list-item-top d-block d-lg-inline-flex">
-                    <div class="list-item-head">
-                      <div class="list-item-title">JavaScript</div>
-                      <div class="list-item-subtitle spcl-light-blue">
-                        Sololearn
-                      </div>
+                <div class="experience-item">
+                    <div class="experience-header">
+                        <div>
+                            <div class="company">Icrypex</div>
+                            <div class="job-title">Frontend Developer</div>
+                        </div>
+                        <span class="date">Aralık 2019 - Mayıs 2021 (1 Yıl 5 Ay)</span>
                     </div>
-                    <div class="list-item-date">
-                      <span class="d-block">Kasım, 2021</span>
+                    <div class="experience-desc">
+                        <ul>
+                            <li>Türkiye'nin önde gelen kripto para borsası platformunun frontend altyapısının
+                                geliştirilmesi</li>
+                            <li>Gerçek zamanlı trading arayüzlerinin React ve Next.js kullanılarak oluşturulması</li>
+                            <li>WebSocket ve Socket.IO ile canlı fiyat güncellemelerinin entegrasyonu</li>
+                            <li>Yüksek trafik altında performans optimizasyonu ve kullanıcı deneyimi iyileştirmeleri
+                            </li>
+                            <li>Responsive ve mobil uyumlu arayüz tasarımlarının hayata geçirilmesi</li>
+                        </ul>
+                        <div class="tech-tags">
+                            <span class="tag">React</span>
+                            <span class="tag">Socket.IO</span>
+                            <span class="tag">TypeScript</span>
+                            <span class="tag">SCSS</span>
+                        </div>
+                        <div class="project-link">
+                            🔗 <a href="https://www.icrypex.com" target="_blank">Web Sitesi</a>
+                        </div>
                     </div>
-                  </div>
-                  <div class="list-item-text">
-                    <p></p>
-                  </div>
-                </li>
-                <li class="list-item">
-                  <div class="list-item-top d-block d-lg-inline-flex">
-                    <div class="list-item-head">
-                      <div class="list-item-title">CSS</div>
-                      <div class="list-item-subtitle spcl-light-blue">
-                        Sololearn
-                      </div>
-                    </div>
-                    <div class="list-item-date">
-                      <span class="d-block">Ocak, 2022</span>
-                    </div>
-                  </div>
-                  <div class="list-item-text">
-                    <p></p>
-                  </div>
-                </li>
-                <li class="list-item">
-                  <div class="list-item-top d-block d-lg-inline-flex">
-                    <div class="list-item-head">
-                      <div class="list-item-title">HTML</div>
-                      <div class="list-item-subtitle spcl-light-blue">
-                        Sololearn
-                      </div>
-                    </div>
-                    <div class="list-item-date">
-                      <span class="d-block">Ekim, 2021</span>
-                    </div>
-                  </div>
-                  <div class="list-item-text">
-                    <p></p>
-                  </div>
-                </li>
-              </ul>
-            </div>
-          </div>
-          <!-- Section Content End -->
-        </div>
-        <!-- Certificated End -->
+                </div>
 
-        <!-- Hobbies Start -->
-        <div class="row section hobbies">
-          <!-- Section Icon Start -->
-          <div class="col-12 col-xs-12 col-md-3 col-lg-2">
-            <div class="section-icon">
-              <svg xmlns="http://www.w3.org/2000/svg" width="30" height="38" viewBox="0 0 30 38">
-                <g id="interests" transform="translate(-62.631)">
-                  <path id="Path_675" data-name="Path 675"
-                    d="M89.217,193.679l-8.184-3v-1.916a7.785,7.785,0,0,0,4.349-5.257h.79a2.119,2.119,0,0,0,2.149-2.083v-1.063a2.05,2.05,0,0,0-.705-1.541v-2.484a.573.573,0,0,0-.582-.564H74.341a.564.564,0,1,0,0,1.128H84.415v4.9a6.787,6.787,0,0,1-13.568,0v-4.9h.779a.564.564,0,1,0,0-1.128h-3.4a.573.573,0,0,0-.582.564v2.484a2.05,2.05,0,0,0-.705,1.541v1.063A2.119,2.119,0,0,0,69.09,183.5h.79a7.785,7.785,0,0,0,4.349,5.257v1.916l-8.184,3a5.154,5.154,0,0,0-3.414,4.789v2.016a.573.573,0,0,0,.582.564H81.7a.564.564,0,1,0,0-1.128H68.81v-1.714a.582.582,0,0,0-1.164,0v1.714H63.795v-1.453a4.019,4.019,0,0,1,2.662-3.734l8.559-3.139a.571.571,0,0,0,.376-.527v-1.874a8.2,8.2,0,0,0,4.478,0v1.874a.571.571,0,0,0,.376.527l8.559,3.139a4.019,4.019,0,0,1,2.662,3.734v1.453H87.616v-1.714a.582.582,0,0,0-1.164,0v1.714H84.418a.564.564,0,1,0,0,1.128h7.631a.573.573,0,0,0,.582-.564v-2.016A5.154,5.154,0,0,0,89.217,193.679Zm-2.06-12.257a.972.972,0,0,1-.985.955h-.616q.022-.285.022-.575v-2.4h.594a.972.972,0,0,1,.985.955v1.063Zm-.705-3.128a2.221,2.221,0,0,0-.28-.018h-.594V176.9h.874v1.4ZM68.81,176.9h.874v1.378H69.09a2.221,2.221,0,0,0-.28.018Zm.28,5.479a.972.972,0,0,1-.985-.955v-1.063a.972.972,0,0,1,.985-.955h.594v2.4q0,.29.022.575H69.09Z"
-                    transform="translate(0 -163.048)" fill="#12407d" />
-                  <path id="Path_676" data-name="Path 676"
-                    d="M188.985,434.37h-3.8a.563.563,0,0,0-.252.06l-1.267.633-1.267-.633a.563.563,0,0,0-.252-.06h-3.8a.564.564,0,0,0,0,1.128h3.664l1.4.7a.564.564,0,0,0,.5,0l1.4-.7h3.664a.564.564,0,0,0,0-1.128Z"
-                    transform="translate(-106.038 -402.206)" fill="#12407d" />
-                  <path id="Path_677" data-name="Path 677"
-                    d="M170.851,7.522a.564.564,0,0,0,.8-.8l-1.16-1.159a2.6,2.6,0,1,1,3.676-3.677l.607.607a.564.564,0,0,0,.8,0l.607-.607a2.6,2.6,0,0,1,3.894,3.429,2.105,2.105,0,0,0-1.333.527,2.123,2.123,0,0,0-2.9,3.1l.321.321-.986.986L173.52,8.6a.564.564,0,0,0-.8.8l2.05,2.049a.564.564,0,0,0,.8,0l1.385-1.385,1.385,1.385a.564.564,0,0,0,.8,0l2.5-2.5a2.126,2.126,0,0,0-.411-3.323,3.728,3.728,0,0,0-5.85-4.525l-.209.209-.209-.209a3.727,3.727,0,0,0-5.271,5.271Zm9.992.62-2.1,2.1-2.1-2.1a.995.995,0,0,1,1.407-1.407l.3.3a.564.564,0,0,0,.8,0l.3-.3a.995.995,0,0,1,1.407,1.407Z"
-                    transform="translate(-97.524 0)" fill="#12407d" />
-                </g>
-              </svg>
-            </div>
-          </div>
-          <!-- Section Icon End -->
 
-          <!-- Section Content Start -->
-          <div class="col-12 col-xs-12 col-md-9 col-lg-10 pt-2">
-            <div class="section-title">Hobiler ve İlgi Alanları</div>
-            <div class="section-content">
-              <p>
-                Hobilerim arasında 3D baskı teknolojileriyle yaratıcı projeler üretmek, web tasarımı ve yazılım
-                geliştirme üzerine yeni teknolojileri keşfetmek yer alıyor. Aynı zamanda araç modifikasyonları ve
-                kişiselleştirilmiş otomobil parçaları tasarlamak da ilgimi çeken konular arasında. Teknolojiye olan
-                ilgimin yanı sıra, sosyal medyada içerik üretmekten keyif alıyor, bilgimi ve deneyimlerimi paylaşarak
-                topluluklarla etkileşimde bulunuyorum.
-              </p>
-            </div>
-          </div>
-          <!-- Section Content End -->
-        </div>
-        <!-- Hobbies End -->
 
-        <!-- References Start -->
-        <div class="row section reference d-none">
-          <!-- Section Icon Start -->
-          <div class="col-12 col-xs-12 col-md-3 col-lg-2">
-            <div class="section-icon">
-              <svg id="rating" xmlns="http://www.w3.org/2000/svg" width="38" height="36" viewBox="0 0 38 36">
-                <path id="Path_749" data-name="Path 749"
-                  d="M247.492,380.746a.746.746,0,1,1-.746-.746A.746.746,0,0,1,247.492,380.746Zm0,0"
-                  transform="translate(-227.746 -351.493)" fill="#12407d" />
-                <path id="Path_750" data-name="Path 750"
-                  d="M367.95,244.475a4.475,4.475,0,1,0-4.475,4.475A4.48,4.48,0,0,0,367.95,244.475Zm-4.475,2.983a2.983,2.983,0,1,1,2.983-2.983A2.987,2.987,0,0,1,363.475,247.458Zm0,0"
-                  transform="translate(-332.411 -221.967)" fill="#12407d" />
-                <path id="Path_751" data-name="Path 751"
-                  d="M31.1,341.492a7.234,7.234,0,0,0-5.006,2.045,8.878,8.878,0,0,0-14.184,0A7.236,7.236,0,0,0,6.9,341.492,6.9,6.9,0,0,0,0,348.2V349.7a.744.744,0,0,0,.742.746H37.258A.744.744,0,0,0,38,349.7V348.2A6.9,6.9,0,0,0,31.1,341.492ZM1.484,348.2A5.393,5.393,0,0,1,6.9,342.983a5.653,5.653,0,0,1,4.187,1.853,8.986,8.986,0,0,0-1,4.114H1.484ZM19,341.492a7.438,7.438,0,0,1,7.422,7.458H11.578A7.447,7.447,0,0,1,19,341.492Zm17.516,7.458H27.906a8.986,8.986,0,0,0-1-4.114,5.653,5.653,0,0,1,4.187-1.853,5.393,5.393,0,0,1,5.418,5.221Zm0,0"
-                  transform="translate(0 -314.442)" fill="#12407d" />
-                <path id="Path_752" data-name="Path 752"
-                  d="M41.95,244.475a4.475,4.475,0,1,0-4.475,4.475A4.48,4.48,0,0,0,41.95,244.475Zm-4.475,2.983a2.983,2.983,0,1,1,2.983-2.983A2.987,2.987,0,0,1,37.475,247.458Zm0,0"
-                  transform="translate(-30.539 -221.967)" fill="#12407d" />
-                <path id="Path_753" data-name="Path 753"
-                  d="M187.933,185.967a5.967,5.967,0,1,0-5.967,5.967A5.973,5.973,0,0,0,187.933,185.967Zm-5.967,4.475a4.475,4.475,0,1,1,4.475-4.475A4.48,4.48,0,0,1,181.967,190.442Zm0,0"
-                  transform="translate(-162.967 -166.462)" fill="#12407d" />
-                <path id="Path_754" data-name="Path 754"
-                  d="M187.547,4.338a.745.745,0,0,0-.6-.508l-3.217-.467L182.287.418a.746.746,0,0,0-1.34,0l-1.44,2.945-3.217.467a.746.746,0,0,0-.413,1.272l2.33,2.27-.55,3.206a.746.746,0,0,0,1.082.786l2.878-1.514,2.88,1.514a.746.746,0,0,0,1.082-.786l-.55-3.206,2.329-2.27a.746.746,0,0,0,.189-.764Zm-3.84,2.24a.746.746,0,0,0-.214.66l.361,2.1-1.888-.993a.746.746,0,0,0-.694,0l-1.888.993.361-2.1a.746.746,0,0,0-.215-.66L178,5.089l2.111-.306a.745.745,0,0,0,.563-.411l.943-1.929.943,1.929a.745.745,0,0,0,.563.411l2.111.306Zm0,0"
-                  transform="translate(-162.644)" fill="#12407d" />
-                <path id="Path_755" data-name="Path 755"
-                  d="M374.336,93.215a.745.745,0,0,0-.6-.508l-2.18-.317-.975-1.975a.745.745,0,0,0-.669-.416h0a.746.746,0,0,0-.669.416l-.975,1.975-2.18.317a.746.746,0,0,0-.413,1.272l1.577,1.538-.372,2.17a.746.746,0,0,0,1.082.786l1.95-1.025,1.95,1.025a.746.746,0,0,0,1.082-.786l-.372-2.17,1.577-1.538A.745.745,0,0,0,374.336,93.215Zm-3.088,1.508a.744.744,0,0,0-.214.66l.183,1.067-.959-.5a.746.746,0,0,0-.694,0l-.96.5.183-1.068a.746.746,0,0,0-.214-.66l-.776-.757,1.072-.156a.746.746,0,0,0,.562-.408l.48-.972.479.971a.746.746,0,0,0,.562.408l1.072.156Zm0,0"
-                  transform="translate(-338.379 -83.238)" fill="#12407d" />
-                <path id="Path_756" data-name="Path 756"
-                  d="M34.336,93.215a.745.745,0,0,0-.6-.508l-2.18-.317-.975-1.975a.746.746,0,0,0-1.338,0l-.975,1.975-2.18.317a.746.746,0,0,0-.413,1.272l1.577,1.538-.372,2.17a.746.746,0,0,0,1.082.786l1.95-1.025,1.95,1.025a.746.746,0,0,0,1.082-.786l-.372-2.17,1.577-1.538A.746.746,0,0,0,34.336,93.215Zm-3.088,1.508a.746.746,0,0,0-.214.66l.183,1.067-.959-.5a.745.745,0,0,0-.694,0l-.96.5.183-1.068a.745.745,0,0,0-.214-.66l-.776-.757,1.073-.156a.746.746,0,0,0,.561-.408l.48-.972.479.971a.746.746,0,0,0,.562.408l1.072.156Zm0,0"
-                  transform="translate(-23.551 -83.238)" fill="#12407d" />
-                <path id="Path_757" data-name="Path 757"
-                  d="M285.483,391.572a.746.746,0,0,0-.819,1.247,4.5,4.5,0,0,1,1.594,1.826A.746.746,0,0,0,287.6,394,5.991,5.991,0,0,0,285.483,391.572Zm0,0"
-                  transform="translate(-263.235 -362.054)" fill="#12407d" />
-              </svg>
-            </div>
-          </div>
-          <!-- Section Icon End -->
+            </section>
 
-          <!-- Section Content Start -->
-          <div class="col-12 col-xs-12 col-md-9 col-lg-10 pt-2">
-            <div class="section-title">Referanslar</div>
-            <div class="section-content">
-              <ul class="list">
-                <li class="list-item">
-                  <div class="list-item-top d-block d-lg-grid equal-div">
-                    <div class="list-item-head">
-                      <div class="list-item-title">Cantez Hasan</div>
-                      <div class="list-item-subtitle spcl-light-blue">
-                        Dandik
-                      </div>
+            <section class="section">
+                <h2 class="section-title">Eğitim</h2>
+                <div class="education-item">
+                    <div class="experience-header">
+                        <div>
+                            <div class="job-title">Sakarya Üniversitesi</div>
+                            <div class="company">Bilgisayar Programcılığı - Ön Lisans</div>
+                        </div>
+                        <span class="date">2015 - 2017</span>
                     </div>
-                    <div class="list-item-detail">
-                      <span class="d-block spcl-light-blue sml-title">Firmadaki Pozisyon</span>
-                      <span class="d-block">Chief Technology Officer</span>
+                    <div class="experience-desc">
+                        GNO: 3.08 / 4.00
                     </div>
-                    <div class="list-item-detail">
-                      <span class="d-block spcl-light-blue sml-title">Telefon Numarası</span>
-                      <span class="d-block">05998765432</span>
+                </div>
+                <div class="education-item terk">
+                    <div class="experience-header">
+                        <div>
+                            <div class="job-title">Marmara Üniversitesi</div>
+                            <div class="company">Bilgisayar Mühendisliği - Lisans</div>
+                        </div>
+                        <span class="date">2018 - 2020</span>
                     </div>
-                    <div class="list-item-detail">
-                      <span class="d-block spcl-light-blue sml-title">E-Posta Adresi</span>
-                      <span class="d-block">cantez@cantez.com</span>
+                    <div class="experience-desc">
+                        Terk
                     </div>
-                  </div>
-                </li>
-                <li class="list-item">
-                  <div class="list-item-top d-block d-lg-grid equal-div">
-                    <div class="list-item-head">
-                      <div class="list-item-title">Abdullah Türkmen</div>
-                      <div class="list-item-subtitle spcl-light-blue">
-                        Dandik Bilişim A.Ş.
-                      </div>
+                </div>
+            </section>
+
+            <section class="section">
+                <h2 class="section-title">Projeler & Katkılar</h2>
+                <div class="experience-item">
+                    <div class="job-title">CodePen Açık Kaynak Katkıları</div>
+                    <div class="experience-desc">
+                        Diğer geliştiricilerin kullanabileceği UI komponentleri, animasyonlar ve interaktif örnekler
+                        paylaşımı. Modern CSS teknikleri ve JavaScript çözümlerinin toplulukla paylaşılması.
+                        <div class="tech-tags">
+                            <span class="tag"><a href="https://codepen.io/abdullahturkmen"
+                                    target="_blank">codepen.io/abdullahturkmen</a></span>
+                        </div>
                     </div>
-                    <div class="list-item-detail">
-                      <span class="d-block spcl-light-blue sml-title">Firmadaki Pozisyon</span>
-                      <span class="d-block">Frontend Developer</span>
-                    </div>
-                    <div class="list-item-detail">
-                      <span class="d-block spcl-light-blue sml-title">Telefon Numarası</span>
-                      <span class="d-block">059912345678</span>
-                    </div>
-                    <div class="list-item-detail">
-                      <span class="d-block spcl-light-blue sml-title">E-Posta Adresi</span>
-                      <span class="d-block">mail@abdullahturkmen.com</span>
-                    </div>
-                  </div>
-                </li>
-              </ul>
-            </div>
-          </div>
-          <!-- Section Content End -->
-        </div>
-        <!-- References End -->
-      </div>
-      <!-- Resume Content End -->
+                </div>
+            </section>
+        </main>
     </div>
-    <!-- Resume End -->
-
-    <!-- Resume Update Start -->
-    <div class="resume-update-date mx-1 mx-md-5">
-      <a href="index.html">Anasayfaya Dön!</a>
-    </div>
-    <!-- Resume Update End -->
-  </div>
 </body>
 
 </html>

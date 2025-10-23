@@ -9,6 +9,17 @@
   height: 90vh;
   margin: auto;
   display: block;
+  border-radius: 10px;
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1);
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+  pointer-events: all;
+  position: relative;
+  z-index: 10;
+}
+
+.section iframe:hover {
+  transform: scale(1.02);
+  box-shadow: 0 8px 30px rgba(0, 0, 0, 0.2);
 }
 
 .section nav.navbar .nav-item {
@@ -45,6 +56,7 @@
   border: 3px solid #333;
   border-radius: 100%;
   position: absolute !important;
+  padding: 15px;
 }
 
 #fp-nav ul li a.active {
@@ -58,5 +70,226 @@
   -webkit-transform: translate(-50%, -50%);
           transform: translate(-50%, -50%);
   color: #333333;
+  padding: 14px;
 }
+
+/* Floating Sidebar Styles */
+.floating-sidebar {
+  position: fixed;
+  top: 50%;
+  left: -300px;
+  transform: translateY(-50%);
+  width: 300px;
+  background: rgba(255, 255, 255, 0.95);
+  backdrop-filter: blur(10px);
+  border-radius: 0 15px 15px 0;
+  box-shadow: 0 8px 32px rgba(0, 0, 0, 0.1);
+  transition: left 0.3s ease;
+  z-index: 1000;
+  font-family: "Poppins", sans-serif;
+}
+
+.floating-sidebar.active {
+  left: 0;
+}
+
+.sidebar-toggle {
+  position: absolute;
+  right: -50px;
+  top: 50%;
+  transform: translateY(-50%);
+  background: #fdc800;
+  color: #333;
+  padding: 15px 12px;
+  border-radius: 0 10px 10px 0;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+}
+
+.sidebar-toggle:hover {
+  background: #e6b600;
+  transform: translateY(-50%) scale(1.1);
+}
+
+.sidebar-content {
+  padding: 20px;
+}
+
+.sidebar-header {
+  text-align: center;
+  margin-bottom: 20px;
+  padding-bottom: 20px;
+  border-bottom: 2px solid rgba(253, 200, 0, 0.3);
+}
+
+.sidebar-avatar {
+  width: 80px;
+  height: 80px;
+  border-radius: 50%;
+  object-fit: cover;
+  border: 3px solid #fdc800;
+  margin-bottom: 10px;
+}
+
+.sidebar-header h3 {
+  margin: 10px 0 5px 0;
+  color: #333;
+  font-weight: 600;
+  font-size: 18px;
+}
+
+.sidebar-header p {
+  margin: 2px 0;
+  color: #666;
+  font-size: 14px;
+}
+
+.sidebar-header p strong {
+  color: #fdc800;
+  font-weight: 600;
+}
+
+.sidebar-links {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+}
+
+.sidebar-link {
+  display: flex;
+  align-items: center;
+  padding: 12px 15px;
+  background: rgba(253, 200, 0, 0.1);
+  color: #333;
+  text-decoration: none;
+  border-radius: 10px;
+  transition: all 0.3s ease;
+  font-size: 14px;
+  font-weight: 500;
+}
+
+.sidebar-link:hover {
+  background: #fdc800;
+  color: #333;
+  transform: translateX(5px);
+  text-decoration: none;
+}
+
+.sidebar-link i {
+  margin-right: 10px;
+  width: 20px;
+  text-align: center;
+}
+
+@media (max-width: 768px) {
+  .floating-sidebar {
+    width: 250px;
+    left: -250px;
+  }
+  
+  .sidebar-toggle {
+    right: -40px;
+    padding: 12px 10px;
+  }
+  
+  .section iframe {
+    width: 95%;
+    height: 85vh;
+  }
+}
+
+/* Scroll hint styling */
+.scroll-hint {
+  font-family: "Poppins", sans-serif;
+  font-weight: 500;
+  backdrop-filter: blur(10px);
+  border: 1px solid rgba(255, 255, 255, 0.2);
+}
+
+/* Section overlay for better interaction */
+.section {
+  position: relative;
+  overflow: hidden;
+}
+
+.section::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: transparent;
+  z-index: 1;
+  pointer-events: none;
+}
+
+.section iframe {
+  position: relative;
+  z-index: 2;
+}
+
+/* Improved navigation dots */
+#fp-nav ul li a {
+  border: 3px solid rgba(51, 51, 51, 0.8) !important;
+  backdrop-filter: blur(10px);
+  background: rgba(255, 255, 255, 0.1) !important;
+}
+
+#fp-nav ul li a:hover {
+  border-color: #fdc800 !important;
+  background: rgba(253, 200, 0, 0.2) !important;
+}
+
+#fp-nav ul li a.active {
+  background-color: #fdc800 !important;
+  border-color: #fdc800 !important;
+}
+
+/*# sourceMappingURL=style.css.map */
+
+/* Scroll hint styling */
+.scroll-hint {
+  font-family: "Poppins", sans-serif;
+  font-weight: 500;
+  backdrop-filter: blur(10px);
+  border: 1px solid rgba(255, 255, 255, 0.2);
+}
+
+/* Section overlay for better interaction */
+.section {
+  position: relative;
+  overflow: hidden;
+}
+
+.section::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: transparent;
+  z-index: 1;
+  pointer-events: none;
+}
+
+.section iframe {
+  position: relative;
+  z-index: 2;
+}
+
+/* Improved navigation dots */
+#fp-nav ul li a {
+  border: 3px solid rgba(51, 51, 51, 0.8);
+  backdrop-filter: blur(10px);
+  background: rgba(255, 255, 255, 0.1);
+}
+
+#fp-nav ul li a:hover {
+  border-color: #fdc800;
+  background: rgba(253, 200, 0, 0.2);
+}
+
 /*# sourceMappingURL=style.css.map */

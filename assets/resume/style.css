@@ -300,4 +300,98 @@ body .resume-update-date a {
   color: inherit;
   text-decoration: none;
 }
+
+/* Modern Improvements */
+body .resume-content-sections {
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+  transition: box-shadow 0.3s ease;
+}
+
+body .resume-content-sections:hover {
+  box-shadow: 0 8px 15px rgba(0, 0, 0, 0.15);
+}
+
+body .resume-content-sections .list-item {
+  transition: transform 0.2s ease, background-color 0.2s ease;
+  border-radius: 8px;
+  padding: 1rem;
+}
+
+body .resume-content-sections .list-item:hover {
+  transform: translateY(-2px);
+  background-color: rgba(6, 110, 199, 0.05);
+}
+
+body .resume-content-sections .personal-avatar {
+  transition: transform 0.3s ease;
+}
+
+body .resume-content-sections .personal-avatar:hover {
+  transform: scale(1.05);
+}
+
+/* Crypto highlight */
+body .resume-content-sections .list-item:first-child {
+  background: linear-gradient(135deg, rgba(6, 110, 199, 0.05) 0%, rgba(18, 64, 125, 0.05) 100%);
+  border-left: 4px solid #066ec7;
+}
+
+body .resume-content-sections .list-item:first-child .list-item-subtitle {
+  font-weight: 600;
+  background: linear-gradient(45deg, #066ec7, #12407d);
+  -webkit-background-clip: text;
+  background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+
+/* Action buttons */
+.resume-actions {
+  margin: 20px 0;
+  padding: 15px 0;
+  border-top: 1px solid #e9ecef;
+}
+
+.action-buttons .btn {
+  margin-left: 10px;
+}
+
+/* Skills section */
+.skill-category {
+  margin-bottom: 20px;
+}
+
+.skill-category h6 {
+  color: #12407d;
+  margin-bottom: 8px;
+  font-size: 14px;
+}
+
+.skill-category p {
+  font-size: 13px;
+  color: #555;
+  line-height: 1.5;
+}
+
+/* Print styles */
+@media print {
+  .resume-actions,
+  .resume-update-date {
+    display: none !important;
+  }
+  
+  body {
+    background-color: white !important;
+  }
+  
+  body .resume-content-sections {
+    box-shadow: none !important;
+    border: 1px solid #ccc !important;
+  }
+  
+  body .resume-content-sections .list-item:hover {
+    transform: none !important;
+    background-color: transparent !important;
+  }
+}
+
 /*# sourceMappingURL=style.css.map */
