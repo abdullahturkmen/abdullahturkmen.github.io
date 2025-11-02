@@ -265,10 +265,40 @@
             margin-top: 12px;
             font-size: 14px;
         }
+
+
+        .download-btn {
+            position: fixed;
+            top: 20px;
+            right: 20px;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: white;
+            border: none;
+            padding: 12px 24px;
+            border-radius: 25px;
+            cursor: pointer;
+            font-size: 14px;
+            font-weight: 600;
+            box-shadow: 0 4px 15px rgba(102, 126, 234, 0.3);
+            transition: all 0.3s ease;
+            z-index: 1000;
+        }
+
+        .download-btn:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 6px 20px rgba(102, 126, 234, 0.4);
+        }
+
+        @media print {
+            .download-btn {
+                display: none !important;
+            }
+        }
     </style>
 </head>
 
 <body>
+    <button class="download-btn" onclick="downloadPDF()">📄 Download PDF</button>
     <div class="container">
         <aside class="sidebar">
             <div class="profile-section">
@@ -637,6 +667,18 @@
             </section>
         </main>
     </div>
+      <script>
+        function downloadPDF() {
+            // PDF dosyasını doğrudan indir
+            const link = document.createElement('a');
+            link.href = 'Abdullah Türkmen - Frontend Developer - Vue-React_.pdf';
+            link.download = 'Abdullah_Türkmen_-_Frontend_Developer_-_Vue-React.pdf';
+            link.style.display = 'none';
+            document.body.appendChild(link);
+            link.click();
+            document.body.removeChild(link);
+        }
+    </script>
 </body>
 
 </html>
